@@ -368,11 +368,11 @@ var map = {
 		12
 	],
 	"../pages/reset-password/reset-password.module": [
-		618,
+		617,
 		7
 	],
 	"../pages/signup/signup.module": [
-		617,
+		618,
 		6
 	],
 	"../pages/sp-home/sp-home.module": [
@@ -1474,8 +1474,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/form/form.module#FormPageModule', name: 'FormPage', segment: 'form', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/genric-popup/genric-popup.module#GenricPopupPageModule', name: 'GenricPopupPage', segment: 'genric-popup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sp-home/sp-home.module#SpHomePageModule', name: 'SpHomePage', segment: 'sp-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-home/user-home.module#UserHomePageModule', name: 'UserHomePage', segment: 'user-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-itinerary/user-itinerary.module#UserItineraryPageModule', name: 'UserItineraryPage', segment: 'user-itinerary', priority: 'low', defaultHistory: [] },
