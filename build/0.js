@@ -82,36 +82,38 @@ var UserItineraryPage = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.lang = 'en';
+        alert('Inside Cons');
         this.lang = 'en';
         this.loading = this.loadingCtrl.create();
         this.loading.present();
         this.itrCode = this.firestore.getItrCode();
         if (this.itrCode == undefined || this.itrCode == '') {
+            alert('itrCode is undefined or empty');
             var interval_1 = setInterval(function () {
                 _this.token = _this.logger.getToken();
-                if (_this.token != '') {
+                if (_this.token != undefined && _this.token != null && _this.token != '') {
+                    alert('token is not empty');
                     clearInterval(interval_1);
-                    if (_this.token != undefined && _this.token != null && _this.token != '') {
-                        // alert(`token is ${this.token}`)
-                        _this.firestore.getLastUsedItrCode(_this.token).valueChanges().subscribe(function (c) {
-                            // alert('Inside Subscribe of get Last Used Itr Code');
-                            if (c != undefined && c.length > 0) {
-                                // alert(c[0]['itrCode']);
-                                _this.itrCode = c[0]['itrCode'];
-                                _this.getItinerary();
-                            }
-                            else {
-                                _this.loading.dismiss();
-                            }
-                        });
-                    }
-                    else {
-                        _this.loading.dismiss();
-                    }
+                    // alert(`token is ${this.token}`)
+                    _this.firestore.getLastUsedItrCode(_this.token).valueChanges().subscribe(function (c) {
+                        // alert('Inside Subscribe of get Last Used Itr Code');
+                        if (c != undefined && c.length > 0) {
+                            // alert(c[0]['itrCode']);
+                            _this.itrCode = c[0]['itrCode'];
+                            _this.getItinerary();
+                        }
+                        else {
+                            _this.loading.dismiss();
+                        }
+                    });
+                }
+                else {
+                    _this.loading.dismiss();
                 }
             }, 100);
         }
         else {
+            alert('itrCode is defined');
             this.getItinerary();
         }
         this.config.getLanguage().subscribe(function (l) { return _this.lang = l; });
