@@ -206,11 +206,37 @@ var AlertProvider = /** @class */ (function () {
     }
     AlertProvider.prototype.getToken = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var token1, token2, token3, token4, token5;
+            var token1, token2, token3, token4, token5, token6, token7;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!this.platform.is('android')) return [3 /*break*/, 3];
+                        this.firebase.grantPermission().then(function (p) {
+                            alert('grant permission');
+                            alert(p);
+                        }, function (p) {
+                            alert('No grant permission');
+                            alert(p);
+                        }).catch(function (e) {
+                            alert('Catch grant permission');
+                            alert(e);
+                        });
+                        this.firebase.hasPermission().then(function (p) {
+                            alert('has permission');
+                            alert(p);
+                        }, function (p) {
+                            alert('No has permission');
+                            alert(p);
+                        }).catch(function (e) {
+                            alert('Catch has permission');
+                            alert(e);
+                        });
+                        return [4 /*yield*/, this.firebase.getToken()];
+                    case 1:
+                        token6 = _a.sent();
+                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
+                    case 2:
+                        token7 = _a.sent();
+                        if (!this.platform.is('android')) return [3 /*break*/, 5];
                         alert('android');
                         this.firebase.grantPermission().then(function (p) {
                             alert('has permission');
@@ -220,52 +246,52 @@ var AlertProvider = /** @class */ (function () {
                             alert(p);
                         });
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 1:
+                    case 3:
                         token1 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 2:
+                    case 4:
                         _a.sent();
-                        _a.label = 3;
-                    case 3:
-                        if (!this.platform.is('ios')) return [3 /*break*/, 6];
+                        _a.label = 5;
+                    case 5:
+                        if (!this.platform.is('ios')) return [3 /*break*/, 8];
                         alert('ios');
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 4:
+                    case 6:
                         token2 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 5:
+                    case 7:
                         _a.sent();
-                        _a.label = 6;
-                    case 6:
-                        if (!this.platform.is('cordova')) return [3 /*break*/, 9];
+                        _a.label = 8;
+                    case 8:
+                        if (!this.platform.is('cordova')) return [3 /*break*/, 11];
                         alert('cordova');
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 7:
+                    case 9:
                         token3 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 8:
+                    case 10:
                         _a.sent();
-                        _a.label = 9;
-                    case 9:
-                        if (!this.platform.is('pwa')) return [3 /*break*/, 12];
+                        _a.label = 11;
+                    case 11:
+                        if (!this.platform.is('pwa')) return [3 /*break*/, 14];
                         alert('pwa');
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 10:
+                    case 12:
                         token4 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 11:
+                    case 13:
                         _a.sent();
-                        _a.label = 12;
-                    case 12:
+                        _a.label = 14;
+                    case 14:
                         alert(this.platform.platforms());
                         alert(typeof this.platform.platforms());
-                        this.saveToken(token1, token2, token3, token4, token5);
+                        this.saveToken(token1, token2, token3, token4, token5, token6, token7);
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AlertProvider.prototype.saveToken = function (token1, token2, token3, token4, token5) {
+    AlertProvider.prototype.saveToken = function (token1, token2, token3, token4, token5, token6, token7) {
         if (!token1)
             token1 = "Not received";
         if (!token2)
@@ -276,6 +302,10 @@ var AlertProvider = /** @class */ (function () {
             token4 = "Not received";
         if (!token5)
             token5 = "Not received";
+        if (!token6)
+            token6 = "Not received";
+        if (!token7)
+            token7 = "Not received";
         var devicesRef = this.afs.collection('devices');
         // android: token1,
         // ios: token2,
@@ -288,7 +318,9 @@ var AlertProvider = /** @class */ (function () {
             ios: token2,
             cordova: token3,
             pwa: token4,
-            promise: token5
+            promise: token5,
+            token6: token6,
+            token7: token7
         };
         this.logger.setToken(token1);
         this.logger.eventLog('getToken', data);
