@@ -329,14 +329,15 @@ var AlertProvider = /** @class */ (function () {
         this.logger.eventLog('token', { token5: token5 });
         this.logger.eventLog('token', { token6: token6 });
         this.logger.eventLog('token', { token7: token7 });
+        this.logger.eventLog('token', { "myToken": "token7" });
         var id = this.afs.createId();
         alert("Writing in FS with code " + id);
-        // return devicesRef.doc(id).set(data)
-        // .then(s => alert('Success in writing to FS'), f => {alert('Failed to write to FS'); alert(f);}).catch(e => {alert('error'); alert(e);})
-        // .catch(e => {
-        //   alert('error writing FS');
-        //   alert(e);
-        // })
+        return devicesRef.doc(id).set(data)
+            .then(function (s) { return alert('Success in writing to FS'); }, function (f) { alert('Failed to write to FS'); alert(f); }).catch(function (e) { alert('error'); alert(e); })
+            .catch(function (e) {
+            alert('error writing FS');
+            alert(e);
+        });
     };
     AlertProvider.prototype.onNotifications = function () {
         return this.firebase.onNotificationOpen();
@@ -906,6 +907,7 @@ var FirestoreProvider = /** @class */ (function () {
         var id = this.firestore.createId();
         data['id'] = id;
         data['appId'] = this.config.getAppId();
+        console.log(data);
         this.firestore.doc("events/" + id).set(data);
     };
     FirestoreProvider.prototype.setItrCode = function (itrcode) {

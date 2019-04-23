@@ -106,6 +106,7 @@ var UserItineraryPage = /** @class */ (function () {
                         }
                         else {
                             alert('No token received from FS');
+                            alert('Dismiss Loading 1');
                             _this.loading.dismiss();
                         }
                     });
@@ -113,6 +114,7 @@ var UserItineraryPage = /** @class */ (function () {
                 else {
                     if (loopCount_1 >= 30) {
                         clearInterval(interval_1);
+                        alert('Dismiss Loading 2');
                         _this.loading.dismiss();
                         alert('No token received - ' + loopCount_1);
                     }
@@ -146,9 +148,11 @@ var UserItineraryPage = /** @class */ (function () {
         this.itinerary$ = this.firestore.getItinerary(this.itrCode.trim()).valueChanges();
         this.itinerary$.subscribe(function (i) {
             // console.log(i);
+            alert('Dismiss Loading 3');
             _this.loading.dismiss();
         }, function (e) {
             _this.errMessage = e;
+            alert('Dismiss Loading 4');
             _this.loading.dismiss();
         });
     };
