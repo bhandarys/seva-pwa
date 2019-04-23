@@ -93,7 +93,7 @@ var UserItineraryPage = /** @class */ (function () {
             var interval_1 = setInterval(function () {
                 loopCount_1++;
                 _this.token = _this.logger.getToken();
-                if (_this.token != undefined && _this.token != null && _this.token != '' && loopCount_1 > 30) {
+                if (_this.token != undefined && _this.token != null && _this.token != '' && loopCount_1 < 30) {
                     alert('token is not empty');
                     clearInterval(interval_1);
                     alert("token is " + _this.token);
