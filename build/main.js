@@ -290,6 +290,7 @@ var AlertProvider = /** @class */ (function () {
         });
     };
     AlertProvider.prototype.saveToken = function (token1, token2, token3, token4, token5, token6, token7) {
+        alert('save token called');
         if (!token1)
             token1 = "Not received";
         if (!token2)
@@ -305,6 +306,7 @@ var AlertProvider = /** @class */ (function () {
         if (!token7)
             token7 = "Not received";
         var devicesRef = this.afs.collection('devices');
+        alert('devicesRef created');
         // android: token1,
         // ios: token2,
         // cordova: token3,
@@ -334,7 +336,7 @@ var AlertProvider = /** @class */ (function () {
         var id = this.afs.createId();
         alert("Writing in FS with code " + id);
         return devicesRef.doc(id).set(data)
-            .then(function (s) { return alert('Success in writing to FS'); }, function (f) { alert('Failed to write to FS'); alert(f); }).catch(function (e) { alert('error'); alert(e); })
+            .then(function (s) { return alert('Success in writing to FS'); }, function (f) { alert('Failed to write to FS'); alert(f); })
             .catch(function (e) {
             alert('error writing FS');
             alert(e);
