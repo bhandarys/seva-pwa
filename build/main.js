@@ -261,6 +261,10 @@ var AlertProvider = /** @class */ (function () {
             token2 = "Not received";
         if (!token3)
             token3 = "Not received";
+        if (!token3)
+            token4 = "Not received";
+        if (!token3)
+            token5 = "Not received";
         var devicesRef = this.afs.collection('devices');
         var data = {
             userId: 'userId',
