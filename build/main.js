@@ -206,7 +206,7 @@ var AlertProvider = /** @class */ (function () {
     }
     AlertProvider.prototype.getToken = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var token1, token2, token3;
+            var token1, token2, token3, token4, token5;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -215,6 +215,7 @@ var AlertProvider = /** @class */ (function () {
                         return [4 /*yield*/, this.firebase.getToken()];
                     case 1:
                         token1 = _a.sent();
+                        this.firebase.getToken().then(function (t) { return token5 = t; });
                         _a.label = 2;
                     case 2:
                         if (!this.platform.is('ios')) return [3 /*break*/, 5];
@@ -229,23 +230,31 @@ var AlertProvider = /** @class */ (function () {
                     case 5:
                         if (!this.platform.is('cordova')) return [3 /*break*/, 8];
                         alert('cordova');
-                        return [4 /*yield*/, this.firebase.getToken()];
-                    case 6:
-                        token3 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 7:
+                    case 6:
                         _a.sent();
+                        return [4 /*yield*/, this.firebase.getToken()];
+                    case 7:
+                        token3 = _a.sent();
                         _a.label = 8;
                     case 8:
+                        if (!this.platform.is('pwa')) return [3 /*break*/, 10];
+                        alert('pwa');
+                        return [4 /*yield*/, this.firebase.getToken()];
+                    case 9:
+                        // await this.firebase.grantPermission();
+                        token4 = _a.sent();
+                        _a.label = 10;
+                    case 10:
                         alert(this.platform.platforms());
                         alert(typeof this.platform.platforms());
-                        this.saveToken(token1, token2, token3);
+                        this.saveToken(token1, token2, token3, token4, token5);
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AlertProvider.prototype.saveToken = function (token1, token2, token3) {
+    AlertProvider.prototype.saveToken = function (token1, token2, token3, token4, token5) {
         if (!token1)
             token1 = "Not received";
         if (!token2)
@@ -257,7 +266,9 @@ var AlertProvider = /** @class */ (function () {
             userId: 'userId',
             android: token1,
             ios: token2,
-            cordova: token3
+            cordova: token3,
+            pwa: token4,
+            promise: token5
         };
         this.logger.setToken(token1);
         this.logger.eventLog('getToken', data);
