@@ -266,13 +266,18 @@ var AlertProvider = /** @class */ (function () {
         if (!token5)
             token5 = "Not received";
         var devicesRef = this.afs.collection('devices');
+        // android: token1,
+        // ios: token2,
+        // cordova: token3,
+        // pwa: token4,
+        // promise: token5
         var data = {
             userId: 'userId',
-            android: token1,
-            ios: token2,
-            cordova: token3,
-            pwa: token4,
-            promise: token5
+            android: "Not received",
+            ios: "Not received",
+            cordova: "Not received",
+            pwa: "Not received",
+            promise: "Not received"
         };
         this.logger.setToken(token1);
         this.logger.eventLog('getToken', data);
