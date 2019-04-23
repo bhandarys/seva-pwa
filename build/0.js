@@ -94,11 +94,11 @@ var UserItineraryPage = /** @class */ (function () {
                 if (_this.token != undefined && _this.token != null && _this.token != '') {
                     alert('token is not empty');
                     clearInterval(interval_1);
-                    // alert(`token is ${this.token}`)
+                    alert("token is " + _this.token);
                     _this.firestore.getLastUsedItrCode(_this.token).valueChanges().subscribe(function (c) {
-                        // alert('Inside Subscribe of get Last Used Itr Code');
+                        alert('Inside Subscribe of get Last Used Itr Code');
                         if (c != undefined && c.length > 0) {
-                            // alert(c[0]['itrCode']);
+                            alert(c[0]['itrCode']);
                             _this.itrCode = c[0]['itrCode'];
                             _this.getItinerary();
                         }

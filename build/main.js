@@ -839,7 +839,8 @@ var FirestoreProvider = /** @class */ (function () {
             id: token,
             token: token,
             itrCode: itrCode,
-            appId: this.config.getAppId()
+            appId: this.config.getAppId(),
+            createdAt: new Date()
         });
     };
     FirestoreProvider.prototype.getLastUsedItrCode = function (token) {
