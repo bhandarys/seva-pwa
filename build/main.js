@@ -210,42 +210,53 @@ var AlertProvider = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!this.platform.is('android')) return [3 /*break*/, 2];
+                        if (!this.platform.is('android')) return [3 /*break*/, 3];
                         alert('android');
-                        return [4 /*yield*/, this.firebase.getToken()];
+                        this.firebase.grantPermission().then(function (p) {
+                            alert('has permission');
+                            alert(p);
+                        }, function (p) {
+                            alert('No permission');
+                            alert(p);
+                        });
+                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
                     case 1:
                         token1 = _a.sent();
-                        this.firebase.getToken().then(function (t) { return token5 = t; });
-                        _a.label = 2;
+                        return [4 /*yield*/, this.firebase.grantPermission()];
                     case 2:
-                        if (!this.platform.is('ios')) return [3 /*break*/, 5];
-                        alert('ios');
-                        return [4 /*yield*/, this.firebase.getToken()];
+                        _a.sent();
+                        _a.label = 3;
                     case 3:
+                        if (!this.platform.is('ios')) return [3 /*break*/, 6];
+                        alert('ios');
+                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
+                    case 4:
                         token2 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 4:
-                        _a.sent();
-                        _a.label = 5;
                     case 5:
-                        if (!this.platform.is('cordova')) return [3 /*break*/, 8];
-                        alert('cordova');
-                        return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 6:
                         _a.sent();
-                        return [4 /*yield*/, this.firebase.getToken()];
+                        _a.label = 6;
+                    case 6:
+                        if (!this.platform.is('cordova')) return [3 /*break*/, 9];
+                        alert('cordova');
+                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
                     case 7:
                         token3 = _a.sent();
-                        _a.label = 8;
+                        return [4 /*yield*/, this.firebase.grantPermission()];
                     case 8:
-                        if (!this.platform.is('pwa')) return [3 /*break*/, 10];
-                        alert('pwa');
-                        return [4 /*yield*/, this.firebase.getToken()];
+                        _a.sent();
+                        _a.label = 9;
                     case 9:
-                        // await this.firebase.grantPermission();
-                        token4 = _a.sent();
-                        _a.label = 10;
+                        if (!this.platform.is('pwa')) return [3 /*break*/, 12];
+                        alert('pwa');
+                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
                     case 10:
+                        token4 = _a.sent();
+                        return [4 /*yield*/, this.firebase.grantPermission()];
+                    case 11:
+                        _a.sent();
+                        _a.label = 12;
+                    case 12:
                         alert(this.platform.platforms());
                         alert(typeof this.platform.platforms());
                         this.saveToken(token1, token2, token3, token4, token5);
