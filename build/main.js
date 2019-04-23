@@ -206,7 +206,7 @@ var AlertProvider = /** @class */ (function () {
     }
     AlertProvider.prototype.getToken = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var token1, token2, token3, platform;
+            var token1, token2, token3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -231,7 +231,7 @@ var AlertProvider = /** @class */ (function () {
                         alert('cordova');
                         return [4 /*yield*/, this.firebase.getToken()];
                     case 6:
-                        token2 = _a.sent();
+                        token3 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
                     case 7:
                         _a.sent();
@@ -261,7 +261,9 @@ var AlertProvider = /** @class */ (function () {
         };
         this.logger.setToken(token1);
         this.logger.eventLog('getToken', data);
-        return devicesRef.doc(token1).set(data);
+        alert('Writing in FS');
+        var id = this.afs.createId();
+        return devicesRef.doc(id).set(data).then(function (s) { return alert('Success in writing to FS'); }, function (f) { alert('Failed to write to FS'); alert(f); });
     };
     AlertProvider.prototype.onNotifications = function () {
         return this.firebase.onNotificationOpen();
