@@ -91,9 +91,9 @@ var UserItineraryPage = /** @class */ (function () {
             alert('itrCode is undefined or empty');
             var loopCount_1 = 0;
             var interval_1 = setInterval(function () {
+                loopCount_1++;
                 _this.token = _this.logger.getToken();
                 if (_this.token != undefined && _this.token != null && _this.token != '' && loopCount_1 > 30) {
-                    loopCount_1++;
                     alert('token is not empty');
                     clearInterval(interval_1);
                     alert("token is " + _this.token);
