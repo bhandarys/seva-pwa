@@ -273,11 +273,11 @@ var AlertProvider = /** @class */ (function () {
         // promise: token5
         var data = {
             userId: 'userId',
-            android: "Not received",
-            ios: "Not received",
-            cordova: "Not received",
-            pwa: "Not received",
-            promise: "Not received"
+            android: token1,
+            ios: token2,
+            cordova: token3,
+            pwa: token4,
+            promise: token5
         };
         this.logger.setToken(token1);
         this.logger.eventLog('getToken', data);
