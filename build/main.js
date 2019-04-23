@@ -283,7 +283,7 @@ var AlertProvider = /** @class */ (function () {
         this.logger.eventLog('getToken', data);
         var id = this.afs.createId();
         alert("Writing in FS with code " + id);
-        return devicesRef.doc(id).set(data).then(function (s) { return alert('Success in writing to FS'); }, function (f) { alert('Failed to write to FS'); alert(f); });
+        return devicesRef.doc(id).set(data).then(function (s) { return alert('Success in writing to FS'); }, function (f) { alert('Failed to write to FS'); alert(f); }).catch(function (e) { alert('error'); alert(e); });
     };
     AlertProvider.prototype.onNotifications = function () {
         return this.firebase.onNotificationOpen();
