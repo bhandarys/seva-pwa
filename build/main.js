@@ -216,7 +216,7 @@ var AlertProvider = /** @class */ (function () {
                         token = _a.sent();
                         _a.label = 2;
                     case 2:
-                        if (!this.platform.is('cordova')) return [3 /*break*/, 4];
+                        if (!this.platform.is('pwa')) return [3 /*break*/, 4];
                         return [4 /*yield*/, this.firebase.getToken()];
                     case 3:
                         token = _a.sent();
