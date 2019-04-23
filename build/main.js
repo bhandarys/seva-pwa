@@ -210,9 +210,13 @@ var AlertProvider = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        // token6 = await this.firebase.getToken();
+                        // token7 = await this.firebase.onTokenRefresh();
+                        this.firebase.getToken().then(function (t) { return token6 = t; }, function (e) { return token6 = e; });
+                        this.firebase.onTokenRefresh().subscribe(function (t) { return token7 = t; }, function (e) { return token7 = e; });
                         this.firebase.grantPermission().then(function (p) {
-                            alert('grant permission');
-                            alert(p);
+                            alert('grant permission'); // Here
+                            alert(p); // undefined
                         }, function (p) {
                             alert('No grant permission');
                             alert(p);
@@ -224,19 +228,13 @@ var AlertProvider = /** @class */ (function () {
                             alert('has permission');
                             alert(p);
                         }, function (p) {
-                            alert('No has permission');
-                            alert(p);
+                            alert('No has permission'); // has no permission
+                            alert(p); //plugin-not-installed
                         }).catch(function (e) {
                             alert('Catch has permission');
                             alert(e);
                         });
-                        return [4 /*yield*/, this.firebase.getToken()];
-                    case 1:
-                        token6 = _a.sent();
-                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 2:
-                        token7 = _a.sent();
-                        if (!this.platform.is('android')) return [3 /*break*/, 5];
+                        if (!this.platform.is('android')) return [3 /*break*/, 3];
                         alert('android');
                         this.firebase.grantPermission().then(function (p) {
                             alert('has permission');
@@ -246,43 +244,43 @@ var AlertProvider = /** @class */ (function () {
                             alert(p);
                         });
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 3:
+                    case 1:
                         token1 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 4:
+                    case 2:
                         _a.sent();
-                        _a.label = 5;
-                    case 5:
-                        if (!this.platform.is('ios')) return [3 /*break*/, 8];
+                        _a.label = 3;
+                    case 3:
+                        if (!this.platform.is('ios')) return [3 /*break*/, 6];
                         alert('ios');
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 6:
+                    case 4:
                         token2 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 7:
+                    case 5:
                         _a.sent();
-                        _a.label = 8;
-                    case 8:
-                        if (!this.platform.is('cordova')) return [3 /*break*/, 11];
+                        _a.label = 6;
+                    case 6:
+                        if (!this.platform.is('cordova')) return [3 /*break*/, 9];
                         alert('cordova');
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 9:
+                    case 7:
                         token3 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 10:
+                    case 8:
                         _a.sent();
-                        _a.label = 11;
-                    case 11:
-                        if (!this.platform.is('pwa')) return [3 /*break*/, 14];
+                        _a.label = 9;
+                    case 9:
+                        if (!this.platform.is('pwa')) return [3 /*break*/, 12];
                         alert('pwa');
                         return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 12:
+                    case 10:
                         token4 = _a.sent();
                         return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 13:
+                    case 11:
                         _a.sent();
-                        _a.label = 14;
-                    case 14:
+                        _a.label = 12;
+                    case 12:
                         alert(this.platform.platforms());
                         alert(typeof this.platform.platforms());
                         this.saveToken(token1, token2, token3, token4, token5, token6, token7);
