@@ -317,8 +317,8 @@ var AlertProvider = /** @class */ (function () {
             cordova: token3,
             pwa: token4,
             promise: token5,
-            token6: token6,
-            token7: token7
+            sudhir6: token6,
+            sudhir7: token7
         };
         this.logger.setToken(token1);
         this.logger.eventLog('getToken', data);
