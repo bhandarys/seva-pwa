@@ -225,7 +225,7 @@ var AlertProvider = /** @class */ (function () {
                         _a.sent();
                         _a.label = 5;
                     case 5:
-                        // alert('got token')
+                        alert('got token');
                         alert(this.platform.platforms());
                         alert(typeof this.platform.platforms());
                         this.saveToken(token);
