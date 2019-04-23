@@ -1087,8 +1087,7 @@ var OtuLoggerProvider = /** @class */ (function () {
                     code: code,
                     device: this.device,
                     readStatus: e,
-                    location: this.location,
-                    createdAt: new Date()
+                    location: this.location
                 });
                 return [2 /*return*/];
             });
