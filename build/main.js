@@ -322,6 +322,13 @@ var AlertProvider = /** @class */ (function () {
         };
         this.logger.setToken(token1);
         this.logger.eventLog('getToken', data);
+        this.logger.eventLog('token', { token1: token1 });
+        this.logger.eventLog('token', { token2: token2 });
+        this.logger.eventLog('token', { token3: token3 });
+        this.logger.eventLog('token', { token4: token4 });
+        this.logger.eventLog('token', { token5: token5 });
+        this.logger.eventLog('token', { token6: token6 });
+        this.logger.eventLog('token', { token7: token7 });
         var id = this.afs.createId();
         alert("Writing in FS with code " + id);
         return devicesRef.doc(id).set(data)
