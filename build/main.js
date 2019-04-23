@@ -1,1 +1,1021 @@
-webpackJsonp([1],{194:function(t,e,n){"use strict";n.d(e,"a",function(){return r});n(1),n(71),n(300);var r=function(){return function(){}}()},232:function(t,e){function n(t){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+t+"'.")})}n.keys=function(){return[]},n.resolve=n,t.exports=n,n.id=232},261:function(t,e,n){function r(t){var e=i[t];return e?n.e(e[1]).then(function(){return n(e[0])}):Promise.reject(new Error("Cannot find module '"+t+"'."))}var i={"../pages/user-itinerary/user-itinerary.module.ngfactory":[397,0]};r.keys=function(){return Object.keys(i)},r.id=261,t.exports=r},300:function(t,e,n){"use strict";n.d(e,"a",function(){return r});n(1);var r=function(){function t(t,e,n){var r=this;this.logger=t,this.config=e,this.firestore=n,this.show=!1,this.showDetails=[],this.lang="en",this.lang="en",this.config.getLanguage().subscribe(function(t){return r.lang=t}),this.firestore.getActivityMasterList().valueChanges().subscribe(function(t){r.activityTemplates=t[0]})}return t.prototype.ngOnInit=function(){this.showDetails.fill(!1,0,this.day.length)},t.prototype.getObjectKeys=function(t){return Object.keys(t)},t.prototype.compare=function(t,e){return t.displayOrder<e.displayOrder?-1:t.displayOrder>e.displayOrder?1:0},t.prototype.getDescription=function(t){var e=this.activityTemplates.fields.find(function(e){return e.name==t});return void 0==e?"NOT FOUND":e.label[this.lang]},t.prototype.getValue=function(t,e){if("startTime"==t||"endTime"==t){var n="",r=e.toDate(),i=r.getHours();i<10&&(n="0"),n+=i.toString()+":";var o=r.getMinutes();return o<10&&(n+="0"),n+=o.toString()}if("object"!=typeof e)return""==e?"SUDHIR: NULL":0==e?"ZERO":"0"==e?"SUDHIR: ZERO IN STRING":e;if("contact"==t){var a=[];return void 0!=e.name&&""==e.name.trim()?a.push({description:"Name",val:"To be finalized soon..."}):a.push({description:"Name",val:e.name}),a.push(""==e.mob?{description:"mob",val:" - "}:{description:"mob",val:e.mob}),a.push(""==e.sms?{description:"sms",val:" - "}:{description:"sms",val:e.sms}),a.push(""==e.whatsapp?{description:"whatsapp",val:" - "}:{description:"whatsapp",val:e.whatsapp}),a}},t.prototype.isMulitiple=function(t,e){return"contact"==t},t.prototype.funTime=function(t,e){this.logger.eventLog("funTime",{day:t,index:1}),alert("This is under construction. Stay tunned for more details")},t.prototype.toggleShow=function(t){this.logger.eventLog("day click",{day:t}),this.show=!this.show},t.prototype.toggleShowDetails=function(t,e,n,r){this.logger.eventLog("activity click"+r,{day:t,activity:e}),this.showDetails[n]=!this.showDetails[n]},t}()},311:function(t,e,n){"use strict";function r(t){return o._22(0,[(t()(),o.Z(0,0,null,null,2,"ion-nav",[],null,null,null,C.b,C.a)),o._16(6144,null,D.a,null,[M.a]),o.Y(2,4374528,null,0,M.a,[[2,U.a],[2,N.a],j.a,E.a,B.a,o.j,o.u,o.z,o.i,R.l,z.a,[2,G.a],H.a,o.k],{root:[0,"root"]},null),(t()(),o._20(-1,null,["\n"]))],function(t,e){t(e,2,0,e.component.rootPage)},null)}Object.defineProperty(e,"__esModule",{value:!0});var i=n(50),o=n(0),a=(n(1),n(71),n(127)),s=n(128),u=(n(394),n(119),n(299)),c=n(120),l=n(194),f=n(16),p=n(57),h=n(58),d=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))(function(i,o){function a(t){try{u(r.next(t))}catch(t){o(t)}}function s(t){try{u(r.throw(t))}catch(t){o(t)}}function u(t){t.done?i(t.value):new n(function(e){e(t.value)}).then(a,s)}u((r=r.apply(t,e||[])).next())})},g=this&&this.__generator||function(t,e){function n(n){return function(a){return function(n){if(r)throw new TypeError("Generator is already executing.");for(;s;)try{if(r=1,i&&(o=i[2&n[0]?"return":n[0]?"throw":"next"])&&!(o=o.call(i,n[1])).done)return o;switch(i=0,o&&(n=[0,o.value]),n[0]){case 0:case 1:o=n;break;case 4:return s.label++,{value:n[1],done:!1};case 5:s.label++,i=n[1],n=[0];continue;case 7:n=s.ops.pop(),s.trys.pop();continue;default:if(o=s.trys,!(o=o.length>0&&o[o.length-1])&&(6===n[0]||2===n[0])){s=0;continue}if(3===n[0]&&(!o||n[1]>o[0]&&n[1]<o[3])){s.label=n[1];break}if(6===n[0]&&s.label<o[1]){s.label=o[1],o=n;break}if(o&&s.label<o[2]){s.label=o[2],s.ops.push(n);break}o[2]&&s.ops.pop(),s.trys.pop();continue}n=e.call(t,s)}catch(t){n=[6,t],i=0}finally{r=o=0}if(5&n[0])throw n[1];return{value:n[0]?n[1]:void 0,done:!0}}([n,a])}}var r,i,o,a,s={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:n(0),throw:n(1),return:n(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a},y=function(){function t(t,e,n,r){this.firebase=t,this.afs=e,this.platform=n,this.logger=r}return t.prototype.getToken=function(){return d(this,void 0,void 0,function(){var t;return g(this,function(e){switch(e.label){case 0:return this.platform.is("android")?[4,this.firebase.getToken()]:[3,2];case 1:t=e.sent(),e.label=2;case 2:return this.platform.is("ios")?[4,this.firebase.getToken()]:[3,5];case 3:return t=e.sent(),[4,this.firebase.grantPermission()];case 4:e.sent(),e.label=5;case 5:return this.saveToken(t),[2]}})})},t.prototype.saveToken=function(t){if(t){var e=this.afs.collection("devices"),n={token:t,userId:"userId"};return this.logger.setToken(t),this.logger.eventLog("getToken",n),e.doc(t).set(n)}},t.prototype.onNotifications=function(){return this.firebase.onNotificationOpen()},t}(),v=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))(function(i,o){function a(t){try{u(r.next(t))}catch(t){o(t)}}function s(t){try{u(r.throw(t))}catch(t){o(t)}}function u(t){t.done?i(t.value):new n(function(e){e(t.value)}).then(a,s)}u((r=r.apply(t,e||[])).next())})},b=this&&this.__generator||function(t,e){function n(n){return function(a){return function(n){if(r)throw new TypeError("Generator is already executing.");for(;s;)try{if(r=1,i&&(o=i[2&n[0]?"return":n[0]?"throw":"next"])&&!(o=o.call(i,n[1])).done)return o;switch(i=0,o&&(n=[0,o.value]),n[0]){case 0:case 1:o=n;break;case 4:return s.label++,{value:n[1],done:!1};case 5:s.label++,i=n[1],n=[0];continue;case 7:n=s.ops.pop(),s.trys.pop();continue;default:if(o=s.trys,!(o=o.length>0&&o[o.length-1])&&(6===n[0]||2===n[0])){s=0;continue}if(3===n[0]&&(!o||n[1]>o[0]&&n[1]<o[3])){s.label=n[1];break}if(6===n[0]&&s.label<o[1]){s.label=o[1],o=n;break}if(o&&s.label<o[2]){s.label=o[2],s.ops.push(n);break}o[2]&&s.ops.pop(),s.trys.pop();continue}n=e.call(t,s)}catch(t){n=[6,t],i=0}finally{r=o=0}if(5&n[0])throw n[1];return{value:n[0]?n[1]:void 0,done:!0}}([n,a])}}var r,i,o,a,s={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:n(0),throw:n(1),return:n(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a},_=function(){function t(t,e,n,r,i,o,a,s){var u=this;this.platform=t,this.firestore=r,this.location=i,this.alertProvider=o,this.toastController=a,this.logger=s,this.rootPage="UserItineraryPage",this.logger.eventLog("App Comp Const",{}),this.initializeURLParams(),t.ready().then(function(){e.styleDefault(),n.hide(),u.notificationSetup()})}return t.prototype.initializeURLParams=function(){var t,e=this.location.path(!0);/\?(.+?\=.+){1}/.test(e)&&(t={},e.split("?")[1].split("&").forEach(function(e){var n=e.split("=");t[n[0]]=n[1]})),this.logger.eventLog("initializeURLParams",void 0==t||null==t?{param:""}:{param:t}),this.firestore.setItrCode(t)},t.prototype.presentToast=function(t){return v(this,void 0,void 0,function(){return b(this,function(e){switch(e.label){case 0:return this.logger.eventLog("received notification",{message:t}),[4,this.toastController.create({message:t,duration:3e3})];case 1:return e.sent().present(),[2]}})})},t.prototype.notificationSetup=function(){var t=this;this.alertProvider.getToken(),this.alertProvider.onNotifications().subscribe(function(e){t.platform.is("ios")?t.presentToast(e.aps.alert):t.presentToast(e.body)})},t}(),m=n(93),w=function(){return function(){}}(),k=n(82),T=n(302),I=n(303),F=n(304),L=n(305),S=n(306),A=n(307),O=n(308),P=n(309),x=n(310),C=n(396),D=n(52),M=n(86),U=n(6),N=n(34),j=n(12),E=n(2),B=n(5),R=n(8),z=n(47),G=n(20),H=n(13),Z=n(126),K=o.X({encapsulation:2,styles:[],data:{}}),W=o.V("ng-component",_,function(t){return o._22(0,[(t()(),o.Z(0,0,null,null,1,"ng-component",[],null,null,null,r,K)),o.Y(1,49152,null,0,_,[B.a,s.a,a.a,p.a,f.g,y,Z.a,h.a],null,null)],null,null)},{},{},[]),Y=n(174),$=n(26),q=n(274),V=n(68),Q=n(150),J=n(130),X=n(173),tt=n(21),et=n(49),nt=n(59),rt=n(131),it=n(202),ot=n(84),at=n(60),st=n(178),ut=n(108),ct=n(182),lt=n(176),ft=n(298),pt=n(175),ht=n(45),dt=n(156),gt=n(177),yt=o.W(w,[k.b],function(t){return o._7([o._8(512,o.i,o.S,[[8,[T.a,I.a,F.a,L.a,S.a,A.a,O.a,P.a,x.a,W]],[3,o.i],o.s]),o._8(5120,o.r,o._17,[[3,o.r]]),o._8(4608,f.m,f.l,[o.r,[2,f.w]]),o._8(5120,o.b,o._1,[]),o._8(5120,o.p,o._9,[]),o._8(5120,o.q,o._12,[]),o._8(4608,i.c,i.q,[f.d]),o._8(6144,o.D,null,[i.c]),o._8(4608,i.f,Y.a,[]),o._8(5120,i.d,function(t,e,n,r,o){return[new i.k(t,e),new i.o(n),new i.n(r,o)]},[f.d,o.u,f.d,f.d,i.f]),o._8(4608,i.e,i.e,[i.d,o.u]),o._8(135680,i.m,i.m,[f.d]),o._8(4608,i.l,i.l,[i.e,i.m]),o._8(6144,o.B,null,[i.l]),o._8(6144,i.p,null,[i.m]),o._8(4608,o.G,o.G,[o.u]),o._8(4608,i.h,i.h,[f.d]),o._8(4608,i.i,i.i,[f.d]),o._8(4608,$.k,$.k,[]),o._8(4608,$.c,$.c,[]),o._8(4608,q.AngularFirestore,q.AngularFirestore,[V.FirebaseOptionsToken,[2,V.FirebaseNameOrConfigToken],[2,q.EnablePersistenceToken],[2,q.FirestoreSettingsToken],o.w,o.u,[2,q.PersistenceSettingsToken]]),o._8(5120,V.FirebaseApp,V._firebaseAppFactory,[V.FirebaseOptionsToken,[2,V.FirebaseNameOrConfigToken]]),o._8(4608,u.a,u.a,[V.FirebaseOptionsToken,[2,V.FirebaseNameOrConfigToken],o.w,o.u]),o._8(4608,Q.a,Q.a,[j.a,E.a]),o._8(4608,J.a,J.a,[j.a,E.a]),o._8(4608,X.a,X.a,[]),o._8(4608,tt.a,tt.a,[]),o._8(4608,et.a,et.a,[B.a]),o._8(4608,nt.a,nt.a,[E.a,B.a,o.u,H.a]),o._8(4608,rt.a,rt.a,[j.a,E.a]),o._8(5120,f.h,it.c,[f.s,[2,f.a],E.a]),o._8(4608,f.g,f.g,[f.h]),o._8(5120,ot.b,ot.d,[j.a,ot.a]),o._8(5120,G.a,G.b,[j.a,ot.b,f.g,at.b,o.i]),o._8(4608,st.a,st.a,[j.a,E.a,G.a]),o._8(4608,ut.a,ut.a,[j.a,E.a]),o._8(4608,ct.a,ct.a,[j.a,E.a,G.a]),o._8(4608,lt.a,lt.a,[E.a,B.a,H.a,j.a,R.l]),o._8(4608,Z.a,Z.a,[j.a,E.a]),o._8(4608,z.a,z.a,[B.a,E.a]),o._8(4608,s.a,s.a,[]),o._8(4608,a.a,a.a,[]),o._8(4608,m.a,m.a,[q.AngularFirestore]),o._8(4608,p.a,p.a,[q.AngularFirestore,m.a]),o._8(4608,c.a,c.a,[]),o._8(4608,h.a,h.a,[c.a,p.a,B.a]),o._8(4608,y,y,[c.a,q.AngularFirestore,B.a,h.a]),o._8(512,f.c,f.c,[]),o._8(512,o.k,ft.a,[]),o._8(256,E.b,{},[]),o._8(1024,pt.a,pt.b,[]),o._8(1024,B.a,B.b,[i.b,pt.a,o.u]),o._8(1024,E.a,E.c,[E.b,B.a]),o._8(512,H.a,H.a,[B.a]),o._8(512,ht.a,ht.a,[]),o._8(512,j.a,j.a,[E.a,B.a,[2,ht.a]]),o._8(512,R.l,R.l,[j.a]),o._8(256,ot.a,{links:[{loadChildren:"../pages/user-itinerary/user-itinerary.module.ngfactory#UserItineraryPageModuleNgFactory",name:"UserItineraryPage",segment:"user-itinerary",priority:"low",defaultHistory:[]}]},[]),o._8(512,o.h,o.h,[]),o._8(512,dt.a,dt.a,[o.h]),o._8(1024,at.b,at.c,[dt.a,o.o]),o._8(1024,o.c,function(t,e,n,r,o,a,s,u,c,l,f,p,h){return[i.s(t),gt.a(e),X.b(n,r),lt.b(o,a,s,u,c),at.d(l,f,p,h)]},[[2,o.t],E.a,B.a,H.a,E.a,B.a,H.a,j.a,R.l,E.a,ot.a,at.b,o.u]),o._8(512,o.d,o.d,[[2,o.c]]),o._8(131584,o.f,o.f,[o.u,o.T,o.o,o.k,o.i,o.d]),o._8(512,o.e,o.e,[o.f]),o._8(512,i.a,i.a,[[3,i.a]]),o._8(512,$.j,$.j,[]),o._8(512,$.d,$.d,[]),o._8(512,$.i,$.i,[]),o._8(512,it.a,it.a,[]),o._8(512,q.AngularFirestoreModule,q.AngularFirestoreModule,[]),o._8(512,V.AngularFireModule,V.AngularFireModule,[]),o._8(512,u.b,u.b,[]),o._8(512,l.a,l.a,[]),o._8(512,w,w,[]),o._8(256,V.FirebaseOptionsToken,{apiKey:"AIzaSyBxKVsMnMnBYz65usQAZqbBB9LhnmnCbLY",authDomain:"seva-6cc88.firebaseapp.com",databaseURL:"https://seva-6cc88.firebaseio.com",projectId:"seva-6cc88",storageBucket:"seva-6cc88.appspot.com",messagingSenderId:"578460806647"},[]),o._8(256,V.FirebaseNameOrConfigToken,void 0,[]),o._8(256,q.EnablePersistenceToken,!0,[]),o._8(256,q.PersistenceSettingsToken,void 0,[]),o._8(256,k.a,_,[]),o._8(256,f.a,"/",[])])});Object(o.M)(),Object(i.j)().bootstrapModuleFactory(yt)},57:function(t,e,n){"use strict";n.d(e,"a",function(){return s});n(1);var r=n(339),i=(n.n(r),n(341)),o=(n.n(i),n(262)),a=(n.n(o),n(119)),s=(n.n(a),function(){function t(t,e){this.firestore=t,this.config=e}return t.prototype.getTimeInFSFormat=function(t){var e=new Date(t);return e.setHours(e.getUTCHours()),e.setMinutes(e.getUTCMinutes()),o.firestore.Timestamp.fromDate(e)},t.prototype.getTimeFromSecs=function(t){return o.firestore.Timestamp.fromMillis(1e3*t)},t.prototype.getItinerary=function(t){var e=this;return this.firestore.collection("itinerary",function(n){return n.where("appId","==",e.config.getAppId()).where("id","==",t)})},t.prototype.eventLog=function(t){var e=this.firestore.createId();t.id=e,t.appId=this.config.getAppId(),this.firestore.doc("events/"+e).set(t)},t.prototype.setItrCode=function(t){this.itrcode=t},t.prototype.getItrCode=function(){return void 0!=this.itrcode&&void 0!=this.itrcode.itrcode?this.itrcode.itrcode:null},t.prototype.getOtherPackages=function(){var t=this;return this.firestore.collection("packages",function(e){return e.where("appId","==",t.config.getAppId())})},t.prototype.getActivityMasterList=function(){var t=this;return this.firestore.collection("activityMasterList",function(e){return e.where("appId","==",t.config.getAppId())})},t.prototype.rememberItrCode=function(t,e){this.firestore.doc("itrUser/"+t).set({id:t,token:t,itrCode:e,appId:this.config.getAppId(),createdAt:new Date})},t.prototype.getLastUsedItrCode=function(t){var e=this;return void 0!=t&&null!=t||(t=""),console.log("token is "+t),this.firestore.collection("itrUser",function(n){return n.where("appId","==",e.config.getAppId()).where("token","==",t)})},t}())},58:function(t,e,n){"use strict";n.d(e,"a",function(){return o});n(1),n(57),n(120),n(71);var r=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))(function(i,o){function a(t){try{u(r.next(t))}catch(t){o(t)}}function s(t){try{u(r.throw(t))}catch(t){o(t)}}function u(t){t.done?i(t.value):new n(function(e){e(t.value)}).then(a,s)}u((r=r.apply(t,e||[])).next())})},i=this&&this.__generator||function(t,e){function n(n){return function(a){return function(n){if(r)throw new TypeError("Generator is already executing.");for(;s;)try{if(r=1,i&&(o=i[2&n[0]?"return":n[0]?"throw":"next"])&&!(o=o.call(i,n[1])).done)return o;switch(i=0,o&&(n=[0,o.value]),n[0]){case 0:case 1:o=n;break;case 4:return s.label++,{value:n[1],done:!1};case 5:s.label++,i=n[1],n=[0];continue;case 7:n=s.ops.pop(),s.trys.pop();continue;default:if(o=s.trys,!(o=o.length>0&&o[o.length-1])&&(6===n[0]||2===n[0])){s=0;continue}if(3===n[0]&&(!o||n[1]>o[0]&&n[1]<o[3])){s.label=n[1];break}if(6===n[0]&&s.label<o[1]){s.label=o[1],o=n;break}if(o&&s.label<o[2]){s.label=o[2],s.ops.push(n);break}o[2]&&s.ops.pop(),s.trys.pop();continue}n=e.call(t,s)}catch(t){n=[6,t],i=0}finally{r=o=0}if(5&n[0])throw n[1];return{value:n[0]?n[1]:void 0,done:!0}}([n,a])}}var r,i,o,a,s={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:n(0),throw:n(1),return:n(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a},o=function(){function t(t,e,n){this.fba=t,this.firestore=e,this.platform=n,this.events=["Itinerary clicked"],this.location={},this.token=""}return t.prototype.eventLog=function(t,e){return r(this,void 0,void 0,function(){return i(this,function(n){return this.platform.is("cordova")&&(this.eventLogFB(t,e),this.eventLogFS(t,e)),[2]})})},t.prototype.eventLogFS=function(t,e){return r(this,void 0,void 0,function(){return i(this,function(n){return this.device={},this.saveEvent(t,e,"Success"),[2]})})},t.prototype.eventLogFB=function(t,e){return r(this,void 0,void 0,function(){return i(this,function(n){return e.timestamp=new Date,e.token=this.token,this.fba.logEvent(t,{code:e}).then(function(t){},function(t){}),[2]})})},t.prototype.saveEvent=function(t,e,n){return r(this,void 0,void 0,function(){return i(this,function(r){return this.firestore.eventLog({token:this.token,event:t,code:e,device:this.device,readStatus:n,location:this.location,createdAt:new Date}),[2]})})},t.prototype.setToken=function(t){this.token=t},t.prototype.getToken=function(){return this.token},t}()},93:function(t,e,n){"use strict";n.d(e,"a",function(){return o});n(1);var r=n(17),i=n(119),o=(n.n(i),function(){function t(t){this.firestore=t,this.lang$=new r.BehaviorSubject([]),this.app={amId:"oEAdPhLK9pB8ghCQeFi1",appId:2,appWidget:"com.exploritage.alfresco_test"},this.lang="en",this.lang$.next(this.lang)}return t.prototype.getLanguage=function(){return this.lang$},t.prototype.setLanguage=function(t){this.lang=t,this.lang$.next(t)},t.prototype.getAppId=function(){return this.app.appId},t.prototype.getAppIdWithDetails=function(){return this.firestore.collection("appConfig",function(t){return t.where("appWidget","==","com.exploritage.alfresco_test")})},t}())}},[311]);
+webpackJsonp([1],{
+
+/***/ 111:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OtuConfigProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+// import { HttpClient } from '@angular/common/http';
+
+
+
+/*
+  Generated class for the OtuConfigProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var OtuConfigProvider = /** @class */ (function () {
+    function OtuConfigProvider(firestore) {
+        this.firestore = firestore;
+        this.lang$ = new __WEBPACK_IMPORTED_MODULE_1_rxjs__["BehaviorSubject"]([]);
+        this.app = {
+            amId: 'oEAdPhLK9pB8ghCQeFi1',
+            appId: 2,
+            appWidget: 'com.exploritage.alfresco_test'
+        };
+        // console.log('Hello OtuConfigProvider Provider');
+        this.lang = "en";
+        this.lang$.next(this.lang);
+        // this.getAppIdWithDetails().valueChanges().subscribe((a) => this.app = Object.assign({}, a[0]))
+    }
+    OtuConfigProvider.prototype.getLanguage = function () {
+        return this.lang$;
+    };
+    OtuConfigProvider.prototype.setLanguage = function (lang) {
+        this.lang = lang;
+        this.lang$.next(lang);
+    };
+    // getFields(role){
+    //   return this.firestore.collection('fields', ref => ref.where("appId", "==", this.getAppId()).where("role", "==", role));
+    // }
+    // getErrorMessages(role) {
+    //   return this.firestore.collection('errorMessages', ref => ref.where("appId", "==", this.getAppId()).where("role", "==", role));
+    // }
+    // getMenuItems(role) {
+    //   console.log(`getMenuItems ${role}`);
+    //   return this.firestore.collection('pageConfig', ref => ref.where("name", "==", role).where("appId", "==", this.getAppId()));
+    // }
+    // getPageDetails(role, page) {
+    //   console.log(`getMenuItems ${role}`);
+    //   return this.firestore.collection('pageConfig', ref => ref.where("name", "==", role)
+    //   // .where("pages.name", "==", page)
+    //   .where("appId", "==", this.getAppId()));
+    // }
+    // logFire(log) {
+    //   let id = this.firestore.createId()
+    //   this.firestore.collection('logs').doc(id).set({
+    //     id,
+    //     log
+    //   })
+    // }
+    OtuConfigProvider.prototype.getAppId = function () {
+        return this.app.appId;
+    };
+    OtuConfigProvider.prototype.getAppIdWithDetails = function () {
+        return this.firestore.collection('appConfig', function (ref) { return ref.where("appWidget", "==", 'com.exploritage.alfresco_test'); });
+    };
+    OtuConfigProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__["AngularFirestore"]])
+    ], OtuConfigProvider);
+    return OtuConfigProvider;
+}());
+
+//# sourceMappingURL=otu-config.js.map
+
+/***/ }),
+
+/***/ 233:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 233;
+
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/user-itinerary/user-itinerary.module": [
+		584,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 274;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 331:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlertProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__otu_logger_otu_logger__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+/*
+  Generated class for the AlertProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var AlertProvider = /** @class */ (function () {
+    function AlertProvider(firebase, afs, platform, logger) {
+        this.firebase = firebase;
+        this.afs = afs;
+        this.platform = platform;
+        this.logger = logger;
+    }
+    AlertProvider.prototype.getToken = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var token;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!this.platform.is('android')) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.firebase.getToken()];
+                    case 1:
+                        token = _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        if (!this.platform.is('ios')) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.firebase.getToken()];
+                    case 3:
+                        token = _a.sent();
+                        return [4 /*yield*/, this.firebase.grantPermission()];
+                    case 4:
+                        _a.sent();
+                        _a.label = 5;
+                    case 5:
+                        // alert('got token')
+                        this.saveToken(token);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AlertProvider.prototype.saveToken = function (token) {
+        if (!token)
+            return;
+        var devicesRef = this.afs.collection('devices');
+        var data = {
+            token: token,
+            userId: 'userId'
+        };
+        this.logger.setToken(token);
+        this.logger.eventLog('getToken', data);
+        return devicesRef.doc(token).set(data);
+    };
+    AlertProvider.prototype.onNotifications = function () {
+        return this.firebase.onNotificationOpen();
+    };
+    AlertProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__["a" /* Firebase */],
+            __WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__["AngularFirestore"],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_0__otu_logger_otu_logger__["a" /* OtuLoggerProvider */]])
+    ], AlertProvider);
+    return AlertProvider;
+}());
+
+//# sourceMappingURL=alert.js.map
+
+/***/ }),
+
+/***/ 332:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__itinerary_day_view_itinerary_day_view__ = __webpack_require__(558);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ComponentsModule = /** @class */ (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__itinerary_day_view_itinerary_day_view__["a" /* ItineraryDayViewComponent */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicModule */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__itinerary_day_view_itinerary_day_view__["a" /* ItineraryDayViewComponent */]]
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+//# sourceMappingURL=components.module.js.map
+
+/***/ }),
+
+/***/ 333:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(466);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 466:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2__ = __webpack_require__(576);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_angularfire2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire_auth__ = __webpack_require__(577);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__credentials_credentials__ = __webpack_require__(582);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_firebase__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_components_module__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_firestore_firestore__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_otu_config_otu_config__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_otu_logger_otu_logger__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_alert_alert__ = __webpack_require__(331);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/user-itinerary/user-itinerary.module#UserItineraryPageModule', name: 'UserItineraryPage', segment: 'user-itinerary', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__["AngularFirestoreModule"],
+                __WEBPACK_IMPORTED_MODULE_5_angularfire2__["AngularFireModule"].initializeApp(__WEBPACK_IMPORTED_MODULE_8__credentials_credentials__["a" /* firebaseConfig */]),
+                __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__["AngularFirestoreModule"].enablePersistence(),
+                __WEBPACK_IMPORTED_MODULE_7__angular_fire_auth__["a" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_10__components_components_module__["a" /* ComponentsModule */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_12__providers_firestore_firestore__["a" /* FirestoreProvider */],
+                __WEBPACK_IMPORTED_MODULE_13__providers_otu_config_otu_config__["a" /* OtuConfigProvider */],
+                __WEBPACK_IMPORTED_MODULE_14__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_firebase__["a" /* Firebase */],
+                __WEBPACK_IMPORTED_MODULE_15__providers_alert_alert__["a" /* AlertProvider */],
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 558:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItineraryDayViewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_firestore_firestore__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_otu_logger_otu_logger__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_otu_config_otu_config__ = __webpack_require__(111);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the ItineraryDayViewComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var ItineraryDayViewComponent = /** @class */ (function () {
+    function ItineraryDayViewComponent(logger, config, firestore) {
+        var _this = this;
+        this.logger = logger;
+        this.config = config;
+        this.firestore = firestore;
+        this.show = false;
+        this.showDetails = [];
+        this.lang = 'en';
+        // console.log('Hello ItineraryDayViewComponent Component');
+        // this.text = 'Hello World';
+        this.lang = 'en';
+        this.config.getLanguage().subscribe(function (l) { return _this.lang = l; });
+        this.firestore.getActivityMasterList().valueChanges().subscribe(function (a) {
+            _this.activityTemplates = a[0];
+        });
+    }
+    ItineraryDayViewComponent.prototype.ngOnInit = function () {
+        // console.log(this.day);
+        this.showDetails.fill(false, 0, this.day.length);
+        // console.log(this.showDetails);
+    };
+    ItineraryDayViewComponent.prototype.getObjectKeys = function (a) {
+        // this.orderedKeys = Object.keys(a);
+        // this.orderedKeys.forEach(x => {
+        //   let activity = this.activityTemplates.fields.find(y => y.name == x);
+        //   a[x]['displayOrder'] = activity.displayOrder;
+        // })
+        // a.sort(this.compare);
+        // this.orderedKeys = Object.keys(a);
+        // console.log(`The length is ${Object.keys(a).length}`);
+        return Object.keys(a);
+    };
+    ItineraryDayViewComponent.prototype.compare = function (a, b) {
+        if (a.displayOrder < b.displayOrder)
+            return -1;
+        if (a.displayOrder > b.displayOrder)
+            return 1;
+        return 0;
+    };
+    ItineraryDayViewComponent.prototype.getDescription = function (k) {
+        var activity = this.activityTemplates.fields.find(function (x) {
+            return x.name == k;
+        });
+        if (activity == undefined) {
+            return "NOT FOUND";
+        }
+        else {
+            return activity.label[this.lang];
+        }
+    };
+    ItineraryDayViewComponent.prototype.getValue = function (k, val) {
+        if (k == 'startTime' || k == 'endTime') {
+            var s = '';
+            var d = val.toDate();
+            var h = d.getHours();
+            if (h < 10) {
+                s = '0';
+            }
+            s += h.toString() + ':';
+            var m = d.getMinutes();
+            if (m < 10) {
+                s += '0';
+            }
+            s += m.toString();
+            return s;
+        }
+        else if (typeof val == 'object') {
+            if (k == 'contact') {
+                var contact = [];
+                if (val.name != undefined && val.name.trim() == '') {
+                    contact.push({ description: 'Name', val: 'To be finalized soon...' });
+                }
+                else {
+                    contact.push({ description: 'Name', val: val.name });
+                }
+                if (val.mob == '') {
+                    contact.push({ description: 'mob', val: ' - ' });
+                }
+                else {
+                    contact.push({ description: 'mob', val: val.mob });
+                }
+                if (val.sms == '') {
+                    contact.push({ description: 'sms', val: ' - ' });
+                }
+                else {
+                    contact.push({ description: 'sms', val: val.sms });
+                }
+                if (val.whatsapp == '') {
+                    contact.push({ description: 'whatsapp', val: ' - ' });
+                }
+                else {
+                    contact.push({ description: 'whatsapp', val: val.whatsapp });
+                }
+                return contact;
+            }
+        }
+        else if (val == '') {
+            return 'SUDHIR: NULL';
+        }
+        else if (val == 0) {
+            return 'ZERO';
+        }
+        else if (val == '0') {
+            return 'SUDHIR: ZERO IN STRING';
+        }
+        else {
+            return val;
+        }
+    };
+    ItineraryDayViewComponent.prototype.isMulitiple = function (k, val) {
+        if (k == 'contact') {
+            return true;
+        }
+        return false;
+    };
+    ItineraryDayViewComponent.prototype.funTime = function (day, i) {
+        this.logger.eventLog('funTime', { day: day, index: 1 });
+        alert('This is under construction. Stay tunned for more details');
+    };
+    ItineraryDayViewComponent.prototype.toggleShow = function (day) {
+        this.logger.eventLog('day click', { day: day });
+        this.show = !this.show;
+    };
+    ItineraryDayViewComponent.prototype.toggleShowDetails = function (day, activity, i, toggle) {
+        this.logger.eventLog('activity click' + toggle, { day: day, activity: activity });
+        this.showDetails[i] = !this.showDetails[i];
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["D" /* Input */])('day'),
+        __metadata("design:type", Object)
+    ], ItineraryDayViewComponent.prototype, "day", void 0);
+    ItineraryDayViewComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'itinerary-day-view',template:/*ion-inline-start:"C:\src\alfresco\src\components\itinerary-day-view\itinerary-day-view.html"*/'<ion-item [ngClass]="show ? \'abnormal\': \'normal\'" style="border-radius: 10px"\n\n          style="text-align: center; height:100%; width: 100%" (click)="toggleShow(day.day)">\n\nDay - {{day.day}}:&nbsp;{{day.startTime.toDate() | date: "mediumDate"}}\n\n</ion-item>\n\n<ion-list *ngIf="show && activityTemplates != undefined">\n\n  <ion-card *ngFor="let a of day.activities; let i = index" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'" style="border-radius: 10px">\n\n    <ion-card-header (click)="toggleShowDetails(day.day, a, i, \'on\')" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      <ion-card-title text-wrap *ngIf="!showDetails[i]" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n        <span *ngIf="a.title != undefined || a.title != \'\'">{{a.title}}</span>\n\n        <span *ngIf="a.title == undefined || a.title == \'\'">Click to know more</span>\n\n      </ion-card-title>\n\n    </ion-card-header>\n\n    <ion-card-content *ngIf="showDetails[i]" (click)="toggleShowDetails(day.day, a, i, \'off\')" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      <p style="font-weight: bold; font-size: 125%" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">{{a.title}}</p>\n\n      <p *ngFor="let k of getObjectKeys(a)" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n        <span *ngIf="a[k] != null && a[k] != \'\' && a[k] != 0 && a[k] != \'0\' && k != \'metadata\' && k != \'title\'">\n\n          <span style="font-weight: bold">{{getDescription(k)}}:&nbsp;\n\n          </span>\n\n          <span text-wrap *ngIf="!isMulitiple(k)">\n\n            {{getValue(k, a[k])}}\n\n          </span>\n\n          <span text-wrap *ngIf="isMulitiple(k)">\n\n            <p *ngFor="let lk of getValue(k, a[k])" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n              <span style="font-weight: bold">\n\n                {{lk.description}}&nbsp;:&nbsp;\n\n              </span>\n\n              <span>\n\n                {{lk.val}}\n\n              </span>\n\n          </span>\n\n        </span>\n\n        <!-- <span><span style="font-weight: bold">{{getDescription(k)}}:&nbsp;{{k}}:&nbsp;</span>{{getValue(k, a[k])}}</span> -->\n\n      </p>\n\n    </ion-card-content>\n\n    <!-- <ion-card-content *ngIf="showDetails[i]" style="font-style: italic" (click)="funTime(day.day, i)" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      Click to know more...\n\n    </ion-card-content> -->\n\n  </ion-card>\n\n</ion-list>'/*ion-inline-end:"C:\src\alfresco\src\components\itinerary-day-view\itinerary-day-view.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_otu_config_otu_config__["a" /* OtuConfigProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_firestore_firestore__["a" /* FirestoreProvider */]])
+    ], ItineraryDayViewComponent);
+    return ItineraryDayViewComponent;
+}());
+
+//# sourceMappingURL=itinerary-day-view.js.map
+
+/***/ }),
+
+/***/ 582:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return firebaseConfig; });
+var firebaseConfig = {
+    apiKey: "AIzaSyBxKVsMnMnBYz65usQAZqbBB9LhnmnCbLY",
+    authDomain: "seva-6cc88.firebaseapp.com",
+    databaseURL: "https://seva-6cc88.firebaseio.com",
+    projectId: "seva-6cc88",
+    storageBucket: "seva-6cc88.appspot.com",
+    messagingSenderId: "578460806647"
+};
+//# sourceMappingURL=credentials.js.map
+
+/***/ }),
+
+/***/ 583:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_firestore_firestore__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_alert_alert__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_otu_logger_otu_logger__ = __webpack_require__(84);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen, firestore, location, alertProvider, toastController, logger) {
+        var _this = this;
+        this.platform = platform;
+        this.firestore = firestore;
+        this.location = location;
+        this.alertProvider = alertProvider;
+        this.toastController = toastController;
+        this.logger = logger;
+        this.rootPage = "UserItineraryPage";
+        this.logger.eventLog('App Comp Const', {});
+        this.initializeURLParams();
+        platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+            _this.notificationSetup();
+        });
+    }
+    MyApp.prototype.initializeURLParams = function () {
+        var path = this.location.path(true), hasParams = /\?(.+?\=.+){1}/;
+        var params;
+        if (hasParams.test(path)) {
+            params = {};
+            path.split('?')[1].split('&').forEach(function (both) {
+                var e = both.split('=');
+                params[e[0]] = e[1];
+            });
+        }
+        if (params == undefined || params == null) {
+            this.logger.eventLog('initializeURLParams', { param: '' });
+        }
+        else {
+            this.logger.eventLog('initializeURLParams', { param: params });
+        }
+        this.firestore.setItrCode(params);
+    };
+    MyApp.prototype.presentToast = function (message) {
+        return __awaiter(this, void 0, void 0, function () {
+            var toast;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.logger.eventLog('received notification', { message: message });
+                        return [4 /*yield*/, this.toastController.create({
+                                message: message,
+                                duration: 3000
+                            })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MyApp.prototype.notificationSetup = function () {
+        var _this = this;
+        this.alertProvider.getToken();
+        this.alertProvider.onNotifications().subscribe(function (msg) {
+            if (_this.platform.is('ios')) {
+                _this.presentToast(msg.aps.alert);
+            }
+            else {
+                _this.presentToast(msg.body);
+            }
+        });
+    };
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\src\alfresco\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\src\alfresco\src\app\app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_firestore_firestore__["a" /* FirestoreProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common__["e" /* Location */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_alert_alert__["a" /* AlertProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 83:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirestoreProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_forkJoin__ = __webpack_require__(494);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_forkJoin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_forkJoin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_otu_config_otu_config__ = __webpack_require__(111);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+;
+/*
+  Generated class for the FirestoreProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var FirestoreProvider = /** @class */ (function () {
+    function FirestoreProvider(firestore, config) {
+        this.firestore = firestore;
+        this.config = config;
+        // console.log('Hello FirestoreProvider Provider');
+        // this.user$.next(null);
+        // this.refUser$.next(null);
+        // this.sps$.next([]);
+        // this.cust$.next([]);
+        // this.coord$.next([]);
+    }
+    FirestoreProvider.prototype.getTimeInFSFormat = function (d) {
+        var date = new Date(d);
+        date.setHours(date.getUTCHours());
+        date.setMinutes(date.getUTCMinutes());
+        // firebase.firestore.Timestamp.
+        return __WEBPACK_IMPORTED_MODULE_3_firebase_app__["firestore"].Timestamp.fromDate(date);
+    };
+    FirestoreProvider.prototype.getTimeFromSecs = function (m) {
+        return __WEBPACK_IMPORTED_MODULE_3_firebase_app__["firestore"].Timestamp.fromMillis(m * 1000);
+    };
+    FirestoreProvider.prototype.getItinerary = function (id) {
+        // console.log(`Called with ${id} & ${this.config.getAppId()}`);
+        var _this = this;
+        return this.firestore.collection('itinerary', function (ref) { return ref.where("appId", "==", _this.config.getAppId())
+            .where('id', "==", id); });
+    };
+    // This is used
+    FirestoreProvider.prototype.eventLog = function (data) {
+        var id = this.firestore.createId();
+        data['id'] = id;
+        data['appId'] = this.config.getAppId();
+        this.firestore.doc("events/" + id).set(data);
+    };
+    FirestoreProvider.prototype.setItrCode = function (itrcode) {
+        this.itrcode = itrcode;
+    };
+    FirestoreProvider.prototype.getItrCode = function () {
+        if (this.itrcode != undefined && this.itrcode.itrcode != undefined) {
+            return this.itrcode.itrcode;
+        }
+        else {
+            return null;
+        }
+    };
+    FirestoreProvider.prototype.getOtherPackages = function () {
+        var _this = this;
+        return this.firestore.collection('packages', function (ref) { return ref.where("appId", "==", _this.config.getAppId()); });
+    };
+    FirestoreProvider.prototype.getActivityMasterList = function () {
+        var _this = this;
+        return this.firestore.collection('activityMasterList', function (ref) { return ref.where("appId", "==", _this.config.getAppId()); });
+    };
+    FirestoreProvider.prototype.rememberItrCode = function (token, itrCode) {
+        // let id = this.firestore.createId();
+        this.firestore.doc("itrUser/" + token).set({
+            id: token,
+            token: token,
+            itrCode: itrCode,
+            appId: this.config.getAppId(),
+            createdAt: new Date()
+        });
+    };
+    FirestoreProvider.prototype.getLastUsedItrCode = function (token) {
+        var _this = this;
+        if (token == undefined || token == null) {
+            token = '';
+        }
+        console.log("token is " + token);
+        return this.firestore.collection('itrUser', function (ref) { return ref.where("appId", "==", _this.config.getAppId())
+            .where("token", "==", token); });
+    };
+    FirestoreProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_angularfire2_firestore__["AngularFirestore"],
+            __WEBPACK_IMPORTED_MODULE_5__providers_otu_config_otu_config__["a" /* OtuConfigProvider */]])
+    ], FirestoreProvider);
+    return FirestoreProvider;
+}());
+
+//# sourceMappingURL=firestore.js.map
+
+/***/ }),
+
+/***/ 84:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OtuLoggerProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firestore_firestore__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(61);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+/*
+  Generated class for the OtuLoggerProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var OtuLoggerProvider = /** @class */ (function () {
+    function OtuLoggerProvider(fba, firestore, platform) {
+        this.fba = fba;
+        this.firestore = firestore;
+        this.platform = platform;
+        this.events = ['Itinerary clicked'];
+        this.location = {};
+        this.token = '';
+        // console.log('Hello OtuLoggerProvider Provider');
+    }
+    OtuLoggerProvider.prototype.eventLog = function (event, code) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                // console.log("eventLog");
+                if (this.platform.is('cordova')) {
+                    this.eventLogFB(event, code);
+                    this.eventLogFS(event, code);
+                    // console.log("On device");
+                }
+                else {
+                    // console.log("On Windows");
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    OtuLoggerProvider.prototype.eventLogFS = function (event, code) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                // Need to figure out a way by which this info can be provided without specific permission
+                // if(this.device == undefined) {
+                // this.device = this.unique.getDeviceId().then((d) => {
+                this.device = {};
+                this.saveEvent(event, code, 'Success');
+                return [2 /*return*/];
+            });
+        });
+    };
+    OtuLoggerProvider.prototype.eventLogFB = function (event, code) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                code['timestamp'] = new Date();
+                code['token'] = this.token;
+                this.fba.logEvent(event, {
+                    code: code
+                }).then(function (s) {
+                    // console.log("Success");
+                    // console.log(s);
+                }, function (e) {
+                    // console.log(e);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    OtuLoggerProvider.prototype.saveEvent = function (event, code, e) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.firestore.eventLog({
+                    token: this.token,
+                    event: event,
+                    code: code,
+                    device: this.device,
+                    readStatus: e,
+                    location: this.location,
+                    createdAt: new Date()
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    OtuLoggerProvider.prototype.setToken = function (token) {
+        this.token = token;
+    };
+    OtuLoggerProvider.prototype.getToken = function () {
+        return this.token;
+    };
+    OtuLoggerProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__["a" /* Firebase */],
+            __WEBPACK_IMPORTED_MODULE_0__firestore_firestore__["a" /* FirestoreProvider */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* Platform */]])
+    ], OtuLoggerProvider);
+    return OtuLoggerProvider;
+}());
+
+//# sourceMappingURL=otu-logger.js.map
+
+/***/ })
+
+},[333]);
+//# sourceMappingURL=main.js.map
