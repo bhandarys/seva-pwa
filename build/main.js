@@ -217,26 +217,15 @@ var AlertProvider = /** @class */ (function () {
                         token = _a.sent();
                         _a.label = 2;
                     case 2:
-                        if (!this.platform.is('cordova')) return [3 /*break*/, 5];
-                        alert('cordova');
-                        return [4 /*yield*/, this.firebase.getToken()];
-                    case 3:
-                        token = _a.sent();
-                        return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 4:
-                        _a.sent();
-                        _a.label = 5;
-                    case 5:
-                        if (!this.platform.is('ios')) return [3 /*break*/, 8];
-                        alert('ios');
-                        return [4 /*yield*/, this.firebase.getToken()];
-                    case 6:
-                        token = _a.sent();
-                        return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 7:
-                        _a.sent();
-                        _a.label = 8;
-                    case 8:
+                        // else if (this.platform.is('cordova')) {
+                        //   alert('cordova');
+                        //   token = await this.firebase.getToken();
+                        //   await this.firebase.grantPermission();
+                        // } else if (this.platform.is('ios')) {
+                        //   alert('ios');
+                        //   token = await this.firebase.getToken();
+                        //   await this.firebase.grantPermission();
+                        // }
                         alert('got token ' + token);
                         alert(this.platform.platforms());
                         alert(typeof this.platform.platforms());

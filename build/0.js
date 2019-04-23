@@ -111,8 +111,11 @@ var UserItineraryPage = /** @class */ (function () {
                     });
                 }
                 else {
-                    alert('No token received - ' + loopCount_1);
-                    _this.loading.dismiss();
+                    if (loopCount_1 >= 30) {
+                        clearInterval(interval_1);
+                        _this.loading.dismiss();
+                        alert('No token received - ' + loopCount_1);
+                    }
                 }
             }, 100);
         }
