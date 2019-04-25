@@ -227,6 +227,7 @@ var AlertProvider = /** @class */ (function () {
                     case 5:
                         // alert('got token')
                         this.saveToken(token);
+                        alert('alert.ts  - token is ' + token);
                         return [2 /*return*/];
                 }
             });
@@ -249,6 +250,7 @@ var AlertProvider = /** @class */ (function () {
         };
         this.logger.setToken(token);
         this.logger.eventLog('getToken', data);
+        alert('alert.ts  - saving token');
         return devicesRef.doc(token).set(data);
     };
     AlertProvider.prototype.onNotifications = function () {
@@ -675,6 +677,7 @@ var MyApp = /** @class */ (function () {
         this.toastController = toastController;
         this.logger = logger;
         this.rootPage = "UserItineraryPage";
+        alert('Component Constructor - V1');
         this.logger.eventLog('App Comp Const', {});
         this.initializeURLParams();
         platform.ready().then(function () {
@@ -952,18 +955,20 @@ var OtuLoggerProvider = /** @class */ (function () {
         this.location = {};
         this.token = '';
         // console.log('Hello OtuLoggerProvider Provider');
-        alert('Inside Logger Constructor');
         storage.get('alfrescoTestToken').then(function (t) {
             if (t == undefined || t == '') {
                 _this.token = firestore.getToken();
+                alert('logger.ts  - First time token is ' + _this.token);
                 _this.storage.set('alfrescoTestToken', _this.token);
             }
             else {
                 _this.token = t;
+                alert('logger.ts  - Repeat token is ' + _this.token);
             }
         }, function (f) {
             _this.token = firestore.getToken();
             _this.storage.set('alfrescoTestToken', _this.token);
+            alert('logger.ts  - Failed token is ' + _this.token);
         });
     }
     OtuLoggerProvider.prototype.eventLog = function (event, code) {
@@ -1031,6 +1036,7 @@ var OtuLoggerProvider = /** @class */ (function () {
         // this.token = token;
     };
     OtuLoggerProvider.prototype.getToken = function () {
+        alert('logger.ts  - Getting token ' + this.token);
         return this.token;
     };
     OtuLoggerProvider = __decorate([

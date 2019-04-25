@@ -82,16 +82,19 @@ var UserItineraryPage = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.lang = 'en';
+        alert('Itt.ts');
         this.lang = 'en';
         this.loading = this.loadingCtrl.create();
         this.loading.present();
         this.itrCode = this.firestore.getItrCode();
+        alert('Itt.ts  - ITR Code is blank');
         if (this.itrCode == undefined || this.itrCode == '') {
             var loopCount_1 = 0;
             var interval_1 = setInterval(function () {
                 loopCount_1++;
                 _this.token = _this.logger.getToken();
                 if (_this.token != undefined && _this.token != null && _this.token != '' && loopCount_1 < 30) {
+                    alert('Itt.ts  - Token is ' + _this.token);
                     clearInterval(interval_1);
                     _this.firestore.getLastUsedItrCode(_this.token).valueChanges().subscribe(function (c) {
                         if (c != undefined && c.length > 0) {
@@ -105,6 +108,7 @@ var UserItineraryPage = /** @class */ (function () {
                 }
                 else {
                     if (loopCount_1 >= 30) {
+                        alert('Itt.ts  - No token received ');
                         clearInterval(interval_1);
                         _this.loading.dismiss();
                     }
@@ -129,6 +133,7 @@ var UserItineraryPage = /** @class */ (function () {
     // }
     UserItineraryPage.prototype.getItinerary = function () {
         var _this = this;
+        alert('Itt.ts  - Get Itr with ' + this.token);
         // alert(`Token Id: ${this.token} & Itr Code: ${this.itrCode}`)
         this.logger.eventLog('getItinerary', { code: this.itrCode });
         if (this.token != undefined) {
