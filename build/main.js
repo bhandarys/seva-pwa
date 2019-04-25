@@ -677,7 +677,7 @@ var MyApp = /** @class */ (function () {
         this.toastController = toastController;
         this.logger = logger;
         this.rootPage = "UserItineraryPage";
-        alert('Component Constructor - V1');
+        alert('Component Constructor - V2');
         this.logger.eventLog('App Comp Const', {});
         this.initializeURLParams();
         platform.ready().then(function () {
@@ -828,13 +828,16 @@ var FirestoreProvider = /** @class */ (function () {
         this.firestore.doc("events/" + id).set(data);
     };
     FirestoreProvider.prototype.setItrCode = function (itrcode) {
+        alert('fs.ts - set Itr code ' + this.itrcode.itrcode);
         this.itrcode = itrcode;
     };
     FirestoreProvider.prototype.getItrCode = function () {
         if (this.itrcode != undefined && this.itrcode.itrcode != undefined) {
+            alert('fs.ts - get Itr code ' + this.itrcode.itrcode);
             return this.itrcode.itrcode;
         }
         else {
+            alert('fs.ts - get Itr code - null');
             return null;
         }
     };
