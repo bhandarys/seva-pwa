@@ -669,7 +669,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen, firestore, location, alertProvider, toastController, logger) {
-        var _this = this;
         this.platform = platform;
         this.firestore = firestore;
         this.location = location;
@@ -677,7 +676,7 @@ var MyApp = /** @class */ (function () {
         this.toastController = toastController;
         this.logger = logger;
         this.rootPage = "UserItineraryPage";
-        alert('Component Constructor - V4');
+        alert('Component Constructor - V5');
         this.logger.eventLog('App Comp Const', {});
         this.initializeURLParams();
         this.notificationSetup();
@@ -686,7 +685,7 @@ var MyApp = /** @class */ (function () {
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
-            _this.notificationSetup();
+            // this.notificationSetup();
         });
     }
     MyApp.prototype.initializeURLParams = function () {
