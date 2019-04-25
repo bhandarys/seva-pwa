@@ -237,10 +237,10 @@ var AlertProvider = /** @class */ (function () {
         var msg;
         if (!token) {
             msg = "Token Not Received";
+            token = this.afs.createId();
         }
         else {
-            msg = "Token Not Received";
-            token = this.afs.createId();
+            msg = "Token Received";
         }
         alert('alert.ts: token is ' + token);
         alert('alert.ts: msg is ' + msg);
@@ -678,7 +678,7 @@ var MyApp = /** @class */ (function () {
         this.toastController = toastController;
         this.logger = logger;
         this.rootPage = "UserItineraryPage";
-        alert('Component Constructor - V6');
+        alert('Component Constructor - V7');
         this.logger.eventLog('App Comp Const', {});
         this.initializeURLParams();
         this.notificationSetup();
