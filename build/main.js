@@ -225,9 +225,8 @@ var AlertProvider = /** @class */ (function () {
                         _a.sent();
                         _a.label = 5;
                     case 5:
-                        // alert('got token')
+                        alert('alert.ts  - 1.token is ' + token);
                         this.saveToken(token);
-                        alert('alert.ts  - token is ' + token);
                         return [2 /*return*/];
                 }
             });
@@ -242,8 +241,8 @@ var AlertProvider = /** @class */ (function () {
         else {
             msg = "Token Received";
         }
-        alert('alert.ts: token is ' + token);
-        alert('alert.ts: msg is ' + msg);
+        alert('alert.ts: 2.token is ' + token);
+        alert('alert.ts: 2.msg is ' + msg);
         var devicesRef = this.afs.collection('devices');
         var data = {
             token: token,
@@ -252,7 +251,7 @@ var AlertProvider = /** @class */ (function () {
         };
         this.logger.setToken(token);
         this.logger.eventLog('getToken', data);
-        alert('alert.ts  - saving token');
+        alert('alert.ts  - 3.saving token');
         return devicesRef.doc(token).set(data);
     };
     AlertProvider.prototype.onNotifications = function () {
@@ -691,6 +690,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp.prototype.initializeURLParams = function () {
+        alert('Component.ts: initializeURLParams');
         var path = this.location.path(true), hasParams = /\?(.+?\=.+){1}/;
         var params;
         if (hasParams.test(path)) {
@@ -729,6 +729,7 @@ var MyApp = /** @class */ (function () {
     };
     MyApp.prototype.notificationSetup = function () {
         var _this = this;
+        alert('Component.ts: notificationSetup');
         this.alertProvider.getToken();
         this.alertProvider.onNotifications().subscribe(function (msg) {
             if (_this.platform.is('ios')) {
@@ -1032,8 +1033,9 @@ var OtuLoggerProvider = /** @class */ (function () {
                     code: code,
                     device: this.device,
                     readStatus: e,
-                    location: this.location,
-                    createdAt: new Date()
+                    location: this.location
+                    // ,
+                    // createdAt: new Date()
                 });
                 return [2 /*return*/];
             });
