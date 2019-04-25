@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 584:
+/***/ 587:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,8 +8,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserItineraryPageModule", function() { return UserItineraryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_itinerary__ = __webpack_require__(585);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_itinerary__ = __webpack_require__(588);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(334);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var UserItineraryPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 585:
+/***/ 588:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82,31 +82,23 @@ var UserItineraryPage = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.lang = 'en';
-        alert('Inside Cons');
         this.lang = 'en';
         this.loading = this.loadingCtrl.create();
         this.loading.present();
         this.itrCode = this.firestore.getItrCode();
         if (this.itrCode == undefined || this.itrCode == '') {
-            alert('itrCode is undefined or empty');
             var loopCount_1 = 0;
             var interval_1 = setInterval(function () {
                 loopCount_1++;
                 _this.token = _this.logger.getToken();
                 if (_this.token != undefined && _this.token != null && _this.token != '' && loopCount_1 < 30) {
-                    alert('token is not empty');
                     clearInterval(interval_1);
-                    alert("token is " + _this.token);
                     _this.firestore.getLastUsedItrCode(_this.token).valueChanges().subscribe(function (c) {
-                        alert('Inside Subscribe of get Last Used Itr Code');
                         if (c != undefined && c.length > 0) {
-                            alert(c[0]['itrCode']);
                             _this.itrCode = c[0]['itrCode'];
                             _this.getItinerary();
                         }
                         else {
-                            alert('No token received from FS');
-                            alert('Dismiss Loading 1');
                             _this.loading.dismiss();
                         }
                     });
@@ -114,15 +106,12 @@ var UserItineraryPage = /** @class */ (function () {
                 else {
                     if (loopCount_1 >= 30) {
                         clearInterval(interval_1);
-                        alert('Dismiss Loading 2');
                         _this.loading.dismiss();
-                        alert('No token received - ' + loopCount_1);
                     }
                 }
             }, 100);
         }
         else {
-            alert('itrCode is defined');
             this.getItinerary();
         }
         this.config.getLanguage().subscribe(function (l) { return _this.lang = l; });
@@ -148,11 +137,9 @@ var UserItineraryPage = /** @class */ (function () {
         this.itinerary$ = this.firestore.getItinerary(this.itrCode.trim()).valueChanges();
         this.itinerary$.subscribe(function (i) {
             // console.log(i);
-            alert('Dismiss Loading 3');
             _this.loading.dismiss();
         }, function (e) {
             _this.errMessage = e;
-            alert('Dismiss Loading 4');
             _this.loading.dismiss();
         });
     };

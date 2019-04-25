@@ -111,7 +111,7 @@ webpackEmptyAsyncContext.id = 233;
 
 var map = {
 	"../pages/user-itinerary/user-itinerary.module": [
-		584,
+		587,
 		0
 	]
 };
@@ -131,7 +131,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 331:
+/***/ 333:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -206,141 +206,50 @@ var AlertProvider = /** @class */ (function () {
     }
     AlertProvider.prototype.getToken = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var token1, token2, token3, token4, token5, token6, token7;
+            var token;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        // token6 = await this.firebase.getToken();
-                        // token7 = await this.firebase.onTokenRefresh();
-                        this.firebase.getToken().then(function (t) { return token6 = t; }, function (e) { return token6 = e; });
-                        this.firebase.onTokenRefresh().subscribe(function (t) { return token7 = t; }, function (e) { return token7 = e; });
-                        this.firebase.grantPermission().then(function (p) {
-                            alert('grant permission'); // Here
-                            alert(p); // undefined
-                        }, function (p) {
-                            alert('No grant permission');
-                            alert(p);
-                        }).catch(function (e) {
-                            alert('Catch grant permission');
-                            alert(e);
-                        });
-                        this.firebase.hasPermission().then(function (p) {
-                            alert('has permission');
-                            alert(p);
-                        }, function (p) {
-                            alert('No has permission'); // has no permission
-                            alert(p); //plugin-not-installed
-                        }).catch(function (e) {
-                            alert('Catch has permission');
-                            alert(e);
-                        });
-                        if (!this.platform.is('android')) return [3 /*break*/, 3];
-                        alert('android');
-                        this.firebase.grantPermission().then(function (p) {
-                            alert('has permission');
-                            alert(p);
-                        }, function (p) {
-                            alert('No permission');
-                            alert(p);
-                        });
-                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
+                        if (!this.platform.is('android')) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.firebase.getToken()];
                     case 1:
-                        token1 = _a.sent();
-                        return [4 /*yield*/, this.firebase.grantPermission()];
+                        token = _a.sent();
+                        _a.label = 2;
                     case 2:
-                        _a.sent();
-                        _a.label = 3;
+                        if (!this.platform.is('ios')) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.firebase.getToken()];
                     case 3:
-                        if (!this.platform.is('ios')) return [3 /*break*/, 6];
-                        alert('ios');
-                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
+                        token = _a.sent();
+                        return [4 /*yield*/, this.firebase.grantPermission()];
                     case 4:
-                        token2 = _a.sent();
-                        return [4 /*yield*/, this.firebase.grantPermission()];
+                        _a.sent();
+                        _a.label = 5;
                     case 5:
-                        _a.sent();
-                        _a.label = 6;
-                    case 6:
-                        if (!this.platform.is('cordova')) return [3 /*break*/, 9];
-                        alert('cordova');
-                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 7:
-                        token3 = _a.sent();
-                        return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 8:
-                        _a.sent();
-                        _a.label = 9;
-                    case 9:
-                        if (!this.platform.is('pwa')) return [3 /*break*/, 12];
-                        alert('pwa');
-                        return [4 /*yield*/, this.firebase.onTokenRefresh()];
-                    case 10:
-                        token4 = _a.sent();
-                        return [4 /*yield*/, this.firebase.grantPermission()];
-                    case 11:
-                        _a.sent();
-                        _a.label = 12;
-                    case 12:
-                        alert(this.platform.platforms());
-                        alert(typeof this.platform.platforms());
-                        this.saveToken(token1, token2, token3, token4, token5, token6, token7);
+                        // alert('got token')
+                        this.saveToken(token);
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AlertProvider.prototype.saveToken = function (token1, token2, token3, token4, token5, token6, token7) {
-        alert('save token called');
-        if (!token1)
-            token1 = "Not received";
-        if (!token2)
-            token2 = "Not received";
-        if (!token3)
-            token3 = "Not received";
-        if (!token4)
-            token4 = "Not received";
-        if (!token5)
-            token5 = "Not received";
-        if (!token6)
-            token6 = "Not received";
-        if (!token7)
-            token7 = "Not received";
+    AlertProvider.prototype.saveToken = function (token) {
+        var msg;
+        if (!token) {
+            msg = "Token Not Received";
+        }
+        else {
+            msg = "Token Not Received";
+            token = this.afs.createId();
+        }
         var devicesRef = this.afs.collection('devices');
-        alert('devicesRef created');
-        // android: token1,
-        // ios: token2,
-        // cordova: token3,
-        // pwa: token4,
-        // promise: token5
-        // android: token1,
-        // ios: token2,
-        // cordova: token3,
-        // pwa: token4,
-        // promise: token5,
-        // sudhir6: token6,
-        // sudhir7: token7
         var data = {
-            userId: 'userId123',
-            data: 'Token is not comming'
+            token: token,
+            userId: 'userId',
+            message: msg
         };
-        this.logger.setToken(token1);
-        // this.logger.eventLog('getToken', data);
-        // this.logger.eventLog('token', {token1: token1});
-        // this.logger.eventLog('token', {token2: token2});
-        // this.logger.eventLog('token', {token3: token3});
-        // this.logger.eventLog('token', {token4: token4});
-        // this.logger.eventLog('token', {token5: token5});
-        // this.logger.eventLog('token', {token6: token6});
-        // this.logger.eventLog('token', {token7: token7});
-        // this.logger.eventLog('token', {"myToken": "token7"});
-        var id = this.afs.createId();
-        alert("Writing in FS with code " + id);
-        return devicesRef.doc(id).set(data)
-            .then(function (s) { return alert('Success in writing to FS'); }, function (f) { alert('Failed to write to FS'); alert(f); })
-            .catch(function (e) {
-            alert('error writing FS');
-            alert(e);
-        });
+        this.logger.setToken(token);
+        this.logger.eventLog('getToken', data);
+        return devicesRef.doc(token).set(data);
     };
     AlertProvider.prototype.onNotifications = function () {
         return this.firebase.onNotificationOpen();
@@ -359,14 +268,14 @@ var AlertProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 332:
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__itinerary_day_view_itinerary_day_view__ = __webpack_require__(558);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__itinerary_day_view_itinerary_day_view__ = __webpack_require__(561);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -393,13 +302,13 @@ var ComponentsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 333:
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(468);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -407,7 +316,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 466:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -415,21 +324,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2__ = __webpack_require__(576);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_angularfire2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire_auth__ = __webpack_require__(577);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__credentials_credentials__ = __webpack_require__(582);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_firebase__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_components_module__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(583);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_firestore_firestore__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_otu_config_otu_config__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_otu_logger_otu_logger__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_alert_alert__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2__ = __webpack_require__(579);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angularfire2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_firestore__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angularfire2_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_fire_auth__ = __webpack_require__(580);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__credentials_credentials__ = __webpack_require__(585);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_firebase__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_components_module__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(586);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_firestore_firestore__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_otu_config_otu_config__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_otu_logger_otu_logger__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_alert_alert__ = __webpack_require__(333);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -452,40 +362,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/user-itinerary/user-itinerary.module#UserItineraryPageModule', name: 'UserItineraryPage', segment: 'user-itinerary', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__["AngularFirestoreModule"],
-                __WEBPACK_IMPORTED_MODULE_5_angularfire2__["AngularFireModule"].initializeApp(__WEBPACK_IMPORTED_MODULE_8__credentials_credentials__["a" /* firebaseConfig */]),
-                __WEBPACK_IMPORTED_MODULE_6_angularfire2_firestore__["AngularFirestoreModule"].enablePersistence(),
-                __WEBPACK_IMPORTED_MODULE_7__angular_fire_auth__["a" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_10__components_components_module__["a" /* ComponentsModule */]
+                __WEBPACK_IMPORTED_MODULE_7_angularfire2_firestore__["AngularFirestoreModule"],
+                __WEBPACK_IMPORTED_MODULE_6_angularfire2__["AngularFireModule"].initializeApp(__WEBPACK_IMPORTED_MODULE_9__credentials_credentials__["a" /* firebaseConfig */]),
+                __WEBPACK_IMPORTED_MODULE_7_angularfire2_firestore__["AngularFirestoreModule"].enablePersistence(),
+                __WEBPACK_IMPORTED_MODULE_8__angular_fire_auth__["a" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_11__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["a" /* IonicStorageModule */].forRoot()
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */],
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_12__providers_firestore_firestore__["a" /* FirestoreProvider */],
-                __WEBPACK_IMPORTED_MODULE_13__providers_otu_config_otu_config__["a" /* OtuConfigProvider */],
-                __WEBPACK_IMPORTED_MODULE_14__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */],
-                __WEBPACK_IMPORTED_MODULE_9__ionic_native_firebase__["a" /* Firebase */],
-                __WEBPACK_IMPORTED_MODULE_15__providers_alert_alert__["a" /* AlertProvider */],
+                __WEBPACK_IMPORTED_MODULE_13__providers_firestore_firestore__["a" /* FirestoreProvider */],
+                __WEBPACK_IMPORTED_MODULE_14__providers_otu_config_otu_config__["a" /* OtuConfigProvider */],
+                __WEBPACK_IMPORTED_MODULE_15__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_firebase__["a" /* Firebase */],
+                __WEBPACK_IMPORTED_MODULE_16__providers_alert_alert__["a" /* AlertProvider */]
             ]
         })
     ], AppModule);
@@ -496,7 +408,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 558:
+/***/ 561:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -671,7 +583,7 @@ var ItineraryDayViewComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 582:
+/***/ 585:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -688,18 +600,18 @@ var firebaseConfig = {
 
 /***/ }),
 
-/***/ 583:
+/***/ 586:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_firestore_firestore__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_alert_alert__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_alert_alert__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_otu_logger_otu_logger__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -847,9 +759,9 @@ var MyApp = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirestoreProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise__ = __webpack_require__(494);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_forkJoin__ = __webpack_require__(494);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_forkJoin__ = __webpack_require__(496);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_forkJoin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_forkJoin__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_app__);
@@ -910,7 +822,6 @@ var FirestoreProvider = /** @class */ (function () {
         var id = this.firestore.createId();
         data['id'] = id;
         data['appId'] = this.config.getAppId();
-        console.log(data);
         this.firestore.doc("events/" + id).set(data);
     };
     FirestoreProvider.prototype.setItrCode = function (itrcode) {
@@ -938,7 +849,7 @@ var FirestoreProvider = /** @class */ (function () {
             id: token,
             token: token,
             itrCode: itrCode,
-            appId: this.config.getAppId(),
+            appId: this.config.getAppId()
         });
     };
     FirestoreProvider.prototype.getLastUsedItrCode = function (token) {
@@ -949,6 +860,9 @@ var FirestoreProvider = /** @class */ (function () {
         console.log("token is " + token);
         return this.firestore.collection('itrUser', function (ref) { return ref.where("appId", "==", _this.config.getAppId())
             .where("token", "==", token); });
+    };
+    FirestoreProvider.prototype.getToken = function () {
+        return this.firestore.createId();
     };
     FirestoreProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -971,6 +885,7 @@ var FirestoreProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(289);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1019,6 +934,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 /*
   Generated class for the OtuLoggerProvider provider.
 
@@ -1026,14 +942,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
   and Angular DI.
 */
 var OtuLoggerProvider = /** @class */ (function () {
-    function OtuLoggerProvider(fba, firestore, platform) {
+    function OtuLoggerProvider(fba, firestore, platform, storage) {
+        var _this = this;
         this.fba = fba;
         this.firestore = firestore;
         this.platform = platform;
+        this.storage = storage;
         this.events = ['Itinerary clicked'];
         this.location = {};
         this.token = '';
         // console.log('Hello OtuLoggerProvider Provider');
+        alert('Inside Logger Constructor');
+        storage.get('alfrescoTestToken').then(function (t) {
+            if (t == undefined || t == '') {
+                _this.token = firestore.getToken();
+                _this.storage.set('alfrescoTestToken', _this.token);
+            }
+            else {
+                _this.token = t;
+            }
+        }, function (f) {
+            _this.token = firestore.getToken();
+            _this.storage.set('alfrescoTestToken', _this.token);
+        });
     }
     OtuLoggerProvider.prototype.eventLog = function (event, code) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1089,14 +1020,15 @@ var OtuLoggerProvider = /** @class */ (function () {
                     code: code,
                     device: this.device,
                     readStatus: e,
-                    location: this.location
+                    location: this.location,
+                    createdAt: new Date()
                 });
                 return [2 /*return*/];
             });
         });
     };
     OtuLoggerProvider.prototype.setToken = function (token) {
-        this.token = token;
+        // this.token = token;
     };
     OtuLoggerProvider.prototype.getToken = function () {
         return this.token;
@@ -1105,7 +1037,8 @@ var OtuLoggerProvider = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__["a" /* Firebase */],
             __WEBPACK_IMPORTED_MODULE_0__firestore_firestore__["a" /* FirestoreProvider */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* Platform */]])
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
     ], OtuLoggerProvider);
     return OtuLoggerProvider;
 }());
@@ -1114,5 +1047,5 @@ var OtuLoggerProvider = /** @class */ (function () {
 
 /***/ })
 
-},[333]);
+},[335]);
 //# sourceMappingURL=main.js.map
