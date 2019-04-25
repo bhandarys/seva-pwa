@@ -677,7 +677,7 @@ var MyApp = /** @class */ (function () {
         this.toastController = toastController;
         this.logger = logger;
         this.rootPage = "UserItineraryPage";
-        alert('Component Constructor - V7');
+        alert('Component Constructor - V8');
         this.logger.eventLog('App Comp Const', {});
         this.initializeURLParams();
         this.notificationSetup();
