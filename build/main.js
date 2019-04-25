@@ -677,9 +677,10 @@ var MyApp = /** @class */ (function () {
         this.toastController = toastController;
         this.logger = logger;
         this.rootPage = "UserItineraryPage";
-        alert('Component Constructor - V3');
+        alert('Component Constructor - V4');
         this.logger.eventLog('App Comp Const', {});
         this.initializeURLParams();
+        this.notificationSetup();
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -825,7 +826,7 @@ var FirestoreProvider = /** @class */ (function () {
         var id = this.firestore.createId();
         data['id'] = id;
         data['appId'] = this.config.getAppId();
-        this.firestore.doc("events/" + id).set(data);
+        this.firestore.doc("pwa_events/" + id).set(data);
     };
     FirestoreProvider.prototype.setItrCode = function (itrcode) {
         if (this.itrcode != undefined && this.itrcode.itrcode != undefined) {
