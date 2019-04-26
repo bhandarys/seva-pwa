@@ -138,7 +138,7 @@ var UserItineraryPage = /** @class */ (function () {
         this.logger.eventLog('getItinerary', { code: this.itrCode });
         var interval = setInterval(function () {
             _this.token = _this.logger.getToken();
-            if (_this.token != undefined) {
+            if (_this.token != undefined && _this.token != '') {
                 clearInterval(interval);
                 alert("Saving ITR Code with token: " + _this.token + " & code: " + _this.itrCode);
                 _this.firestore.rememberItrCode(_this.token, _this.itrCode);
