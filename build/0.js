@@ -138,9 +138,9 @@ var UserItineraryPage = /** @class */ (function () {
         this.logger.eventLog('getItinerary', { code: this.itrCode });
         if (this.token != undefined) {
             this.token = this.logger.getToken();
-            alert("Saving ITR Code with token: " + this.token + " & code: " + this.itrCode);
-            this.firestore.rememberItrCode(this.token, this.itrCode);
         }
+        alert("Saving ITR Code with token: " + this.token + " & code: " + this.itrCode);
+        this.firestore.rememberItrCode(this.token, this.itrCode);
         this.itinerary$ = this.firestore.getItinerary(this.itrCode.trim()).valueChanges();
         this.itinerary$.subscribe(function (i) {
             // console.log(i);
