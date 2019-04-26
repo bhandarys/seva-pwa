@@ -136,19 +136,22 @@ var UserItineraryPage = /** @class */ (function () {
         alert('Itt.ts  - Get Itr with ' + this.itrCode);
         // alert(`Token Id: ${this.token} & Itr Code: ${this.itrCode}`)
         this.logger.eventLog('getItinerary', { code: this.itrCode });
-        if (this.token != undefined) {
-            this.token = this.logger.getToken();
-        }
-        alert("Saving ITR Code with token: " + this.token + " & code: " + this.itrCode);
-        this.firestore.rememberItrCode(this.token, this.itrCode);
-        this.itinerary$ = this.firestore.getItinerary(this.itrCode.trim()).valueChanges();
-        this.itinerary$.subscribe(function (i) {
-            // console.log(i);
-            _this.loading.dismiss();
-        }, function (e) {
-            _this.errMessage = e;
-            _this.loading.dismiss();
-        });
+        var interval = setInterval(function () {
+            _this.token = _this.logger.getToken();
+            if (_this.token != undefined) {
+                clearInterval(interval);
+                alert("Saving ITR Code with token: " + _this.token + " & code: " + _this.itrCode);
+                _this.firestore.rememberItrCode(_this.token, _this.itrCode);
+                _this.itinerary$ = _this.firestore.getItinerary(_this.itrCode.trim()).valueChanges();
+                _this.itinerary$.subscribe(function (i) {
+                    // console.log(i);
+                    _this.loading.dismiss();
+                }, function (e) {
+                    _this.errMessage = e;
+                    _this.loading.dismiss();
+                });
+            }
+        }, 100);
     };
     UserItineraryPage.prototype.changeLanguage = function () {
         var from = this.lang;
