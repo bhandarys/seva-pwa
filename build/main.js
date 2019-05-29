@@ -490,14 +490,14 @@ var ItineraryDayViewComponent = /** @class */ (function () {
         // this.orderedKeys = Object.keys(a);
         // console.log(`The length is ${Object.keys(a).length}`);
         var obj = Object.keys(a);
-        console.log(obj);
+        // console.log(obj);
         var duration = obj.indexOf('duration');
         obj.splice(duration, 1);
         var startTime = obj.indexOf('startTime');
         obj.splice(startTime, 1);
         var endTime = obj.indexOf('endTime');
         obj.splice(endTime, 1);
-        console.log(obj);
+        // console.log(obj);
         return obj;
     };
     ItineraryDayViewComponent.prototype.compare = function (a, b) {
