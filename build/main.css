@@ -30580,3 +30580,8 @@ itinerary-day-view .abnormal {
   border: 1 px solid yellow;
   border-radius: 10px;
 }
+
+page-user-itinerary .toolbar-title {
+  text-overflow: unset;
+  white-space: unset;
+}

@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([2],{
 
 /***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -110,6 +110,10 @@ webpackEmptyAsyncContext.id = 232;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../pages/language/language.module": [
+		582,
+		1
+	],
 	"../pages/user-itinerary/user-itinerary.module": [
 		581,
 		0
@@ -397,7 +401,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/user-itinerary/user-itinerary.module#UserItineraryPageModule', name: 'UserItineraryPage', segment: 'user-itinerary', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/user-itinerary/user-itinerary.module#UserItineraryPageModule', name: 'UserItineraryPage', segment: 'user-itinerary', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/language/language.module#LanguagePageModule', name: 'LanguagePage', segment: 'language', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_7_angularfire2_firestore__["AngularFirestoreModule"],
@@ -507,7 +512,7 @@ var ItineraryDayViewComponent = /** @class */ (function () {
             return 1;
         return 0;
     };
-    ItineraryDayViewComponent.prototype.getDescription = function (k) {
+    ItineraryDayViewComponent.prototype.getDescription = function (k, val) {
         var activity = this.activityTemplates.fields.find(function (x) {
             return x.name == k;
         });
@@ -519,6 +524,7 @@ var ItineraryDayViewComponent = /** @class */ (function () {
         }
     };
     ItineraryDayViewComponent.prototype.getValue = function (k, val) {
+        // console.log(`[${k}] = ${val}`);
         if (k == 'startTime' || k == 'endTime') {
             var s = '';
             var d = val.toDate();
@@ -601,7 +607,7 @@ var ItineraryDayViewComponent = /** @class */ (function () {
     ], ItineraryDayViewComponent.prototype, "day", void 0);
     ItineraryDayViewComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'itinerary-day-view',template:/*ion-inline-start:"C:\src\alfresco\src\components\itinerary-day-view\itinerary-day-view.html"*/'<ion-item [ngClass]="show ? \'abnormal\': \'normal\'" style="border-radius: 10px"\n\n          style="text-align: center; height:100%; width: 100%" (click)="toggleShow(day.day)">\n\nDay - {{day.day}}:&nbsp;{{day.startTime.toDate() | date: "mediumDate"}}\n\n</ion-item>\n\n<ion-list *ngIf="show && activityTemplates != undefined">\n\n  <ion-card *ngFor="let a of day.activities; let i = index" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'" style="border-radius: 10px">\n\n    <ion-card-header (click)="toggleShowDetails(day.day, a, i, \'on\')" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      <ion-card-title text-wrap *ngIf="!showDetails[i]" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n        <span *ngIf="a.title != undefined || a.title != \'\'">{{a.title}}</span>\n\n        <span *ngIf="a.title == undefined || a.title == \'\'">Click to know more</span>\n\n      </ion-card-title>\n\n    </ion-card-header>\n\n    <ion-card-content *ngIf="showDetails[i]" (click)="toggleShowDetails(day.day, a, i, \'off\')" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      <p text-wrap style="font-weight: bold; font-size: 125%" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">{{a.title}}</p>\n\n      <p *ngFor="let k of getObjectKeys(a)" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n        <span *ngIf="a[k] != null && a[k] != \'\' && a[k] != 0 && a[k] != \'0\' && k != \'metadata\' && k != \'title\'">\n\n          <span style="font-weight: bold">{{getDescription(k)}}:&nbsp;\n\n          </span>\n\n          <span text-wrap *ngIf="!isMulitiple(k)">\n\n            {{getValue(k, a[k])}}\n\n          </span>\n\n          <span text-wrap *ngIf="isMulitiple(k)">\n\n            <p *ngFor="let lk of getValue(k, a[k])" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n              <span style="font-weight: bold">\n\n                {{lk.description}}&nbsp;:&nbsp;\n\n              </span>\n\n              <span>\n\n                {{lk.val}}\n\n              </span>\n\n          </span>\n\n        </span>\n\n        <!-- <span><span style="font-weight: bold">{{getDescription(k)}}:&nbsp;{{k}}:&nbsp;</span>{{getValue(k, a[k])}}</span> -->\n\n      </p>\n\n    </ion-card-content>\n\n    <!-- <ion-card-content *ngIf="showDetails[i]" style="font-style: italic" (click)="funTime(day.day, i)" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      Click to know more...\n\n    </ion-card-content> -->\n\n  </ion-card>\n\n</ion-list>'/*ion-inline-end:"C:\src\alfresco\src\components\itinerary-day-view\itinerary-day-view.html"*/
+            selector: 'itinerary-day-view',template:/*ion-inline-start:"C:\src\alfresco\src\components\itinerary-day-view\itinerary-day-view.html"*/'<ion-item [ngClass]="show ? \'abnormal\': \'normal\'" style="border-radius: 10px"\n\n  style="text-align: center; height:100%; width: 100%" (click)="toggleShow(day.day)">\n\n  Day - {{day.day}}:&nbsp;{{day.startTime.toDate() | date: "mediumDate"}}\n\n</ion-item>\n\n<ion-list *ngIf="show && activityTemplates != undefined">\n\n  <ion-card *ngFor="let a of day.activities; let i = index" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'"\n\n    style="border-radius: 10px">\n\n    <ion-card-header (click)="toggleShowDetails(day.day, a, i, \'on\')"\n\n      [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      <ion-card-title text-wrap *ngIf="!showDetails[i]" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n        <span *ngIf="a.title != undefined || a.title != \'\'">{{a.title}}</span>\n\n        <span *ngIf="a.title == undefined || a.title == \'\'">Click to know more</span>\n\n      </ion-card-title>\n\n    </ion-card-header>\n\n    <ion-card-content *ngIf="showDetails[i]" (click)="toggleShowDetails(day.day, a, i, \'off\')"\n\n      [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      <p text-wrap style="font-weight: bold; font-size: 125%" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n        {{a.title}}</p>\n\n      <p *ngFor="let k of getObjectKeys(a)" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n        <span *ngIf="a[k] != null && a[k] != \'\' && a[k] != 0 && a[k] != \'0\' && k != \'metadata\' && k != \'title\'">\n\n          <span style="font-weight: bold">{{getDescription(k, a[k])}}:&nbsp;\n\n          </span>\n\n          <span text-wrap *ngIf="!isMulitiple(k)">\n\n            {{getValue(k, a[k])}}\n\n          </span>\n\n          <span text-wrap *ngIf="isMulitiple(k)">\n\n            <ng-container *ngFor="let lk of getValue(k, a[k])">\n\n              <p *ngIf="lk.val != \'\'" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n                  <span style="font-weight: bold">\n\n                    {{lk.description}}&nbsp;:&nbsp;\n\n                  </span>\n\n                  <span>\n\n                    {{lk.val}}\n\n                  </span>\n\n                </p>\n\n            </ng-container>\n\n          </span>\n\n        </span>\n\n        <!-- <span><span style="font-weight: bold">{{getDescription(k)}}:&nbsp;{{k}}:&nbsp;</span>{{getValue(k, a[k])}}</span> -->\n\n      </p>\n\n    </ion-card-content>\n\n    <!-- <ion-card-content *ngIf="showDetails[i]" style="font-style: italic" (click)="funTime(day.day, i)" [ngClass]="showDetails[i] ? \'normal \': \'abnormal\'">\n\n      Click to know more...\n\n    </ion-card-content> -->\n\n  </ion-card>\n\n</ion-list>'/*ion-inline-end:"C:\src\alfresco\src\components\itinerary-day-view\itinerary-day-view.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_otu_config_otu_config__["a" /* OtuConfigProvider */],
@@ -777,7 +783,7 @@ var MyApp = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__providers_firestore_firestore__["a" /* FirestoreProvider */],
             __WEBPACK_IMPORTED_MODULE_2__angular_common__["e" /* Location */],
             __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_5__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */]])
     ], MyApp);
     return MyApp;

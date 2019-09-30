@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserItineraryPageModule", function() { return UserItineraryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_itinerary__ = __webpack_require__(582);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_itinerary__ = __webpack_require__(583);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(331);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +41,7 @@ var UserItineraryPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 582:
+/***/ 583:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72,7 +72,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var UserItineraryPage = /** @class */ (function () {
-    function UserItineraryPage(navCtrl, navParams, firestore, logger, config, loadingCtrl, alertCtrl) {
+    function UserItineraryPage(navCtrl, navParams, firestore, logger, config, loadingCtrl, alertCtrl, popover) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -81,6 +81,7 @@ var UserItineraryPage = /** @class */ (function () {
         this.config = config;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
+        this.popover = popover;
         this.lang = 'en';
         this.logger.loggerAlert('Itr.ts');
         this.lang = 'en';
@@ -154,19 +155,21 @@ var UserItineraryPage = /** @class */ (function () {
         }, 100);
     };
     UserItineraryPage.prototype.changeLanguage = function () {
+        var _this = this;
         var from = this.lang;
-        if (this.lang == "en") {
-            this.lang = "kn";
-        }
-        else {
-            this.lang = "en";
-        }
-        this.config.setLanguage(this.lang);
-        this.logger.eventLog('changeLanguage', { from: from, to: this.lang });
+        var pop = this.popover.create("LanguagePage", { lang: this.lang });
+        pop.present({ ev: event });
+        pop.onDidDismiss(function (data) {
+            if (data.status) {
+                _this.lang = data.lang;
+                _this.config.setLanguage(_this.lang);
+                _this.logger.eventLog('changeLanguage', { from: from, to: _this.lang });
+            }
+        });
     };
     UserItineraryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-user-itinerary',template:/*ion-inline-start:"C:\src\alfresco\src\pages\user-itinerary\user-itinerary.html"*/'<!--\n\n  Generated template for the UserItineraryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Trip Alfresco</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button color="foreground" (click)="changeLanguage()">{{lang}}</button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n    <ion-label floating>Enter Itinerary Code</ion-label>\n\n    <ion-input type="text" [(ngModel)]="itrCode"></ion-input>\n\n    <button ion-button item-right (click)="getItinerary()">Submit</button>\n\n  </ion-item>\n\n  <div *ngIf="errMessage == undefined">\n\n    <ion-item *ngFor="let i of itinerary$ | async" style="border: 1px solid green">\n\n      <h1 style="text-align: center">{{i.name}}</h1>\n\n      <itinerary-day-view *ngFor="let d of i.days" [day]="d">\n\n      </itinerary-day-view>\n\n    </ion-item>\n\n  </div>\n\n  <div *ngIf="errMessage != undefined && (itinerary$ | async)?.length == 0">\n\n    <h2>Something went wrong - {{errMessage}}</h2>\n\n  </div>\n\n  <br>\n\n  <br><br>\n\n\n\n  <div style="color: green; border: 1px solid green" *ngIf="itrList != undefined && itrList.length != 0">\n\n    <h2 style="text-align: center">Our Other Packages</h2>\n\n    <ion-list>\n\n      <ion-item *ngFor="let l of itrList">\n\n        <p><span style="font-weight: bold; color: green">{{l.name}}</span>:&nbsp;<span text-wrap>{{l.description}}</span></p>\n\n      </ion-item>\n\n    </ion-list>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\src\alfresco\src\pages\user-itinerary\user-itinerary.html"*/,
+            selector: 'page-user-itinerary',template:/*ion-inline-start:"C:\src\alfresco\src\pages\user-itinerary\user-itinerary.html"*/'<!--\n\n  Generated template for the UserItineraryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Kadaltheeram Ayurvedic Beach Resort</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button color="foreground" (click)="changeLanguage()">{{lang}}</button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n    <ion-label floating>Enter Itinerary Code</ion-label>\n\n    <ion-input type="text" [(ngModel)]="itrCode"></ion-input>\n\n    <button ion-button item-right (click)="getItinerary()">Submit</button>\n\n  </ion-item>\n\n  <div *ngIf="errMessage == undefined">\n\n    <ion-item *ngFor="let i of itinerary$ | async" style="border: 1px solid green">\n\n      <h1 style="text-align: center">{{i.name}}</h1>\n\n      <itinerary-day-view *ngFor="let d of i.days" [day]="d">\n\n      </itinerary-day-view>\n\n    </ion-item>\n\n  </div>\n\n  <div *ngIf="errMessage != undefined && (itinerary$ | async)?.length == 0">\n\n    <h2>Something went wrong - {{errMessage}}</h2>\n\n  </div>\n\n  <br>\n\n  <br><br>\n\n\n\n  <div style="color: green; border: 1px solid green" *ngIf="itrList != undefined && itrList.length != 0">\n\n    <h2 style="text-align: center">Our Other Packages</h2>\n\n    <ion-list>\n\n      <ion-item *ngFor="let l of itrList">\n\n        <p><span style="font-weight: bold; color: green">{{l.name}}</span>:&nbsp;<span text-wrap>{{l.description}}</span></p>\n\n      </ion-item>\n\n    </ion-list>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\src\alfresco\src\pages\user-itinerary\user-itinerary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */],
@@ -174,7 +177,8 @@ var UserItineraryPage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__providers_otu_logger_otu_logger__["a" /* OtuLoggerProvider */],
             __WEBPACK_IMPORTED_MODULE_4__providers_otu_config_otu_config__["a" /* OtuConfigProvider */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */]])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* PopoverController */]])
     ], UserItineraryPage);
     return UserItineraryPage;
 }());

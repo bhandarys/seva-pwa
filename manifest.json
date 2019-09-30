@@ -1,6 +1,6 @@
 {
-  "name": "Trip Alfresco",
-  "short_name": "Trip Alfresco",
+  "name": "Kadaltheeram Ayurvedic Beach Resort",
+  "short_name": "Kadaltheeram Ayurvedic Beach Resort",
   "start_url": "index.html",
   "display": "fullscreen",
   "icons": [{
@@ -10,5 +10,5 @@
   }],
   "background_color": "#FFFFFF",
   "theme_color": "#4e8ef7",
-  "description": "A Trip Alfresco App"
+  "description": "A Kadaltheeram Ayurvedic Beach Resort App"
 }
