@@ -1,6 +1,6 @@
 {
-  "name": "Kadaltheeram Ayurvedic Beach Resort",
-  "short_name": "Kadaltheeram Ayurvedic Beach Resort",
+  "name": "Exploritage",
+  "short_name": "Exploritage",
   "start_url": "index.html",
   "display": "fullscreen",
   "icons": [{
@@ -10,5 +10,5 @@
   }],
   "background_color": "green",
   "theme_color": "#4e8ef7",
-  "description": "A Kadaltheeram Ayurvedic Beach Resort App"
+  "description": "An Exploritage"
 }
